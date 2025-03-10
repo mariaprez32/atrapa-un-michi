@@ -1,6 +1,55 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fdf2f8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+
+}
+header h1 {
+  color: #9d174d;
+  font-size: 4em;
+}
+
+header a {
+  text-decoration: none;
+}
+
+a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+main {
+  height: 60vh;
+}
+
+footer {
+  height:5vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 2em 0 4em 0;
+  background-color: #f9a8d4;
 }
