@@ -1,3 +1,24 @@
+:root {
+    /* Text Colors */
+    --color-dark-backgrounds: #fce7f3;
+    --color-descriptions: #db2777;
+    --pink-700: #be185d;
+    /* for headings */
+    --pink-800: #9d174d;
+    /* for strong headings */
+
+    /* UI Element Colors */
+    --pink-100-ui: #fce7f3;
+    /* for backgrounds of icons */
+    --pink-200-ui: #fbcfe8;
+    /* for borders and progress bar background */
+    --pink-400-ui: #f472b6;
+    /* for header gradient */
+    --pink-500-ui: #ec4899;
+    /* for buttons and active elements */
+    --pink-600-ui: #db2777;
+    /* for button hover states */
+}
 
 .card {
     width: 320px;
@@ -67,7 +88,7 @@
     bottom: 0;
     width: 50px;
     height: 3px;
-    background-color: #4f46e5;
+    background-color: #ec4899;
     transition: width 0.3s ease;
 }
 
@@ -91,17 +112,12 @@
 
 .card-tag {
     font-size: 12px;
-    color: #4f46e5;
-    background-color: #eef2ff;
+    color: #db2777;
+    background-color: #fce7f3;
     padding: 4px 10px;
     border-radius: 20px;
     transition: all 0.3s ease;
-}
-
-.card-tag:hover {
-    background-color: #4f46e5;
-    color: #ffffff;
-    transform: translateY(-2px);
+    width: fit-content;
 }
 
 .card-footer {
@@ -135,10 +151,11 @@
 .card-button {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #4f46e5, #818cf8);
+    background: #ec4899;
     color: #ffffff;
     text-decoration: none;
     border-radius: 25px;
+    border: none;
     font-weight: 600;
     transition: all 0.3s ease;
     position: relative;

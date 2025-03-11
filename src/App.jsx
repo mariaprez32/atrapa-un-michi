@@ -27,7 +27,15 @@ function App() {
           tag="Available"
           onButtonClick={() => alert("You adopted Mishi!")}
         />
-
+        <CatCard
+          image="./public/gato.svg"
+          name="Saimon"
+          description="Mishi is a very playful cat that loves to play with toys."
+          buttonText="Adopt"
+          tag="Not available"
+          onButtonClick={() => alert("You adopted Mishi!")}
+          />
+          
       </main>
       <footer>
         <p>© 2025 Purrfect Companions. All rights reserved.</p>
