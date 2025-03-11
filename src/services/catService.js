@@ -1,4 +1,3 @@
-
 const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=10';
 // const API_KEY = 'live_xob7TMwGttCTFIkJHacvJPzoPKMp3HBR9odOg1rwvAowWzpOqThtIC0t1OorQaAb';
 
@@ -66,25 +65,6 @@ export const fetchCatById = async (id) => {
   }
 };
 
-/**
- * Busca gatos por categoría
- * @param {string} category - Categoría para filtrar
- * @param {number} limit - Cantidad de gatos a obtener
- */
-export const searchCatsByCategory = async (category, limit = 10) => {
-  try {
-
-    const cats = await fetchCats(limit);
-    return cats.filter(cat => 
-      cat.tag.toLowerCase().includes(category.toLowerCase())
-    );
-  } catch (error) {
-    console.error('Error en searchCatsByCategory:', error.message);
-    return [];
-  }
-};
-
-
 function getRandomName() {
   const names = [
     'Luna', 'Simba', 'Milo', 'Nala', 'Oliver', 'Loki', 'Coco',
@@ -128,6 +108,5 @@ function getRandomTag() {
 
 export default {
   fetchCats,
-  fetchCatById,
-  searchCatsByCategory
+  fetchCatById
 };
