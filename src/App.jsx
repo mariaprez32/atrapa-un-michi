@@ -19,7 +19,7 @@ function App() {
         <Route path="/adopt" element={<AdoptPage />} />
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        <CatCard
+        {/* <CatCard
           image="./public/gato.svg"
           name="Saimon"
           description="Mishi is a very playful cat that loves to play with toys."
@@ -34,7 +34,7 @@ function App() {
           buttonText="Adopt"
           tag="Not available"
           onButtonClick={() => alert("You adopted Mishi!")}
-          />
+          /> */}
           
       </main>
       <footer>
