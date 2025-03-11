@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AdoptPage from "./pages/AdoptPage";
 import "./App.css";
 import CatCard from "./components/CatCard/CatCard";
+import CatsSlider from "./components/CatsSlider/CatsSlider";
 
 function App() {
   return (
@@ -19,28 +20,11 @@ function App() {
         <Route path="/adopt" element={<AdoptPage />} />
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        {/* <CatCard
-          image="./public/gato.svg"
-          name="Saimon"
-          description="Mishi is a very playful cat that loves to play with toys."
-          buttonText="Adopt"
-          tag="Available"
-          onButtonClick={() => alert("You adopted Mishi!")}
-        />
-        <CatCard
-          image="./public/gato.svg"
-          name="Saimon"
-          description="Mishi is a very playful cat that loves to play with toys."
-          buttonText="Adopt"
-          tag="Not available"
-          onButtonClick={() => alert("You adopted Mishi!")}
-          /> */}
-          
       </main>
-      <footer>
+      {/* <footer>
         <p>© 2025 Purrfect Companions. All rights reserved.</p>
         <p>Contact us: adopta@atrapaunmichi.com</p>
-      </footer>
+      </footer> */}
     </>
   );
 }

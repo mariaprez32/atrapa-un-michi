@@ -1,3 +1,109 @@
-div {
-    color: red;
-}
+.cats-slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  .multi-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+  }
+  
+  .card-item {
+    flex: 0 0 calc(33.333% - 40px);
+    min-width: 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    white-space: normal;
+    margin: 0 20px;
+  }
+  
+  .slider-nav {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+  }
+  
+  .slider-prev {
+    left: 5px;
+  }
+  
+  .slider-next {
+    right: 5px;
+  }
+  
+  .slider-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 8px;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .slider-dot.active {
+    background-color: #333;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 900px) {
+    .multi-card-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0;
+      flex-wrap: nowrap;
+      gap: 30px;
+    }
+    
+    .card-item {
+      flex: 0 0 calc(50% - 40px);
+      scroll-snap-align: center;
+      margin: 0 15px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card-item {
+      flex: 0 0 calc(100% - 40px);
+      margin: 0 10px;
+    }
+    
+    .multi-card-wrapper {
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+  }
