@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AdoptPage from "./pages/AdoptPage";
 import "./App.css";
+import CatCard from "./components/CatCard/CatCard";
 
 function App() {
   return (
@@ -17,7 +18,15 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/adopt" element={<AdoptPage />} />
         <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+        </Routes>
+        <CatCard
+          image="https://placekitten.com/200/200"
+          name="Saimon"
+          description="Mishi is a very playful cat that loves to play with toys."
+          buttonText="Adopt"
+          onButtonClick={() => alert("You adopted Mishi!")}
+        />
+
       </main>
       <footer>
         <p>© 2025 Purrfect Companions. All rights reserved.</p>
