@@ -20,10 +20,11 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <CatCard
-          image="https://placekitten.com/200/200"
+          image="./public/gato.svg"
           name="Saimon"
           description="Mishi is a very playful cat that loves to play with toys."
           buttonText="Adopt"
+          tag="Available"
           onButtonClick={() => alert("You adopted Mishi!")}
         />
 
