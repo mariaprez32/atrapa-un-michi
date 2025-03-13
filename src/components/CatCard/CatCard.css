@@ -1,32 +1,15 @@
-:root {
-    /* Text Colors */
-    --color-dark-backgrounds: #fce7f3;
-    --color-descriptions: #db2777;
-    --pink-700: #be185d;
-    /* for headings */
-    --pink-800: #9d174d;
-    /* for strong headings */
 
-    /* UI Element Colors */
-    --pink-100-ui: #fce7f3;
-    /* for backgrounds of icons */
-    --pink-200-ui: #fbcfe8;
-    /* for borders and progress bar background */
-    --pink-400-ui: #f472b6;
-    /* for header gradient */
-    --pink-500-ui: #ec4899;
-    /* for buttons and active elements */
-    --pink-600-ui: #db2777;
-    /* for button hover states */
-}
 
 .card {
     width: 320px;
+    height: 475px;
     background-color: #ffffff;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -37,7 +20,7 @@
 .card-image {
     display: block;
     margin: 0 auto;
-    max-height: 200px;
+    height: 200px;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -120,6 +103,13 @@
     width: fit-content;
 }
 
+.card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
 .card-footer {
     display: flex;
     justify-content: center;
@@ -146,43 +136,6 @@
     width: 20px;
     height: 20px;
     fill: currentColor;
-}
-
-.card-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ec4899;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 25px;
-    border: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    transition: all 0.4s ease;
-}
-
-.card-button:hover::before {
-    left: 100%;
-}
-
-.card-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
 @keyframes float {

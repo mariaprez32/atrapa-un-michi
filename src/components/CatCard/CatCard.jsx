@@ -1,22 +1,24 @@
 import React from 'react';
 import './CatCard.css';
+import Button from '../Button/Button';
 
 const CatCard = ({ image, name, description, buttonText, onButtonClick, tag }) => {
   return (
-    <article class="card">
-      <img class="card-image" src={image} alt={name} />
-      <div class="card-content">
-        <h2 class="card-title">{name}</h2>
-        <p class="card-description">{description}</p>
-        <p class="card-tag">{tag}</p>
-      </div>
-      <div class="card-footer">
-       
-        <button class="card-button"
-          onClick={onButtonClick}>
-          {buttonText}
-          </button>
-      </div>
+    <article className="card">
+      <img className="card-image" src={image} alt={name} />
+      <div className='card-content-wrapper'>
+        <div className="card-content">
+          <h2 className="card-title">{name}</h2>
+          <p className="card-description">{description}</p>
+          <p className="card-tag">{tag}</p>
+        </div>
+        <div className="card-footer">
+          <Button
+            onClick={onButtonClick}
+            buttonText={buttonText}>
+            </Button>
+        </div>
+      </div> 
     </article>
   );
 };

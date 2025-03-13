@@ -1,8 +1,12 @@
 import React from 'react'
+import './Button.css'
 
-const Button = () => {
+const Button = ({onButtonClick, buttonText}) => {
   return (
-    <div>Button</div>
+    <button className="card-button"
+    onClick={onButtonClick}>
+    {buttonText}
+    </button>
   )
 }
 

@@ -3,27 +3,26 @@ import { Routes, Route, Navigate, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AdoptPage from "./pages/AdoptPage";
 import "./App.css";
-import CatCard from "./components/CatCard/CatCard";
-import CatsSlider from "./components/CatsSlider/CatsSlider";
+
 
 function App() {
   return (
     <>
       <header>
         <h1>
-          <Link to="/">Atrapa un michi</Link>
+          <Link to="/">Catch a kitty</Link>
         </h1>
       </header>
       <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/adopt" element={<AdoptPage />} />
+        <Route path="/adopt/:id" element={<AdoptPage />} />
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
       {/* <footer>
-        <p>© 2025 Purrfect Companions. All rights reserved.</p>
-        <p>Contact us: adopta@atrapaunmichi.com</p>
+        <p>© 2025 Catch a kitty. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:adopt@catchakitty.com">adopt@catchakitty.com</a></p>
       </footer> */}
     </>
   );

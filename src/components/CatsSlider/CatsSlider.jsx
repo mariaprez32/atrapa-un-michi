@@ -6,11 +6,15 @@ import './CatsSlider.css';
 
 const CatsSlider = () => {
   const [cats, setCats] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const visibleCats = 3; 
+
+  const lastPage = Math.floor(cats.length / visibleCats); // lastPage es la página 3 (0, 1, 2, 3)
+  const totalPages = lastPage + 1; //son 4 páginas porque son 3 gatos en 3 páginas + 1 gato en una 1
+  const currentPageInitialCatIndex = currentPage * visibleCats // índice del primer elemento de la página actual
 
   useEffect(() => {
     const loadCats = async () => {
@@ -29,41 +33,22 @@ const CatsSlider = () => {
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      const lastIndex = cats.length - (visibleCats - 1) // 8
-      const nextIndex = prevIndex + 1;
-      // return nextIndex >= cats.length - (visibleCats - 1) ? 0 : nextIndex;
-      return nextIndex >= lastIndex ? 0 : nextIndex; 
-    });
+    setCurrentPage(currentPage + 1);
   };
   
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      // const lastIndex = cats.length - visibleCats;
-      // return prevIndex === 0 ? lastIndex > 0 ? lastIndex : 0 : prevIndex - 1;
-      const lastIndex = cats.length - 1; // 9
-      return prevIndex === 0 ? lastIndex : prevIndex - 1;
-    });
+    setCurrentPage(currentPage - 1);
   };
 
   const handleAdoptClick = (id) => {
     navigate(`/adopt/${id}`);
   };
 
-  const getVisibleCatIndices = () => {
-    const indices = [];
-    for (let i = 0; i < visibleCats; i++) {
-      const index = (currentIndex + i) % cats.length;
-      indices.push(index);
-    }
-    return indices;
-  };
-
   if (loading) return (
     <div className="slider-loading">
       <div>
         <div className="loading-spinner"></div>
-        <p>Cargando gatitos adorables...</p>
+        <p>Loading adorable kitties...</p>
       </div>
     </div>
   );
@@ -75,59 +60,64 @@ const CatsSlider = () => {
         className="card-button" 
         onClick={() => window.location.reload()}
       >
-        Intentar de nuevo
+        Try again
       </button>
     </div>
   );
 
   if (cats.length === 0) return (
     <div className="slider-empty">
-      <p>No hay gatitos disponibles en este momento.</p>
+      <p>There are not available cats at this moment.</p>
     </div>
   );
-
-  const visibleCatIndices = getVisibleCatIndices();
 
   return (
     <div className="cats-slider">
       <div className="slider-container">
-        <button 
-          className="slider-nav slider-prev"
-          onClick={prevSlide}
+        {currentPage > 0 ? (
+          <button 
+            className="slider-nav slider-prev"
+            onClick={prevSlide}
 
-        >
-          &lt;
-        </button>
+          >
+            &lt;
+          </button>
+        ) : null}
         
         <div className="multi-card-wrapper">
-          {visibleCatIndices.map(index => (
-            <div key={cats[index].id} className="card-item">
+          {/* el slice es para cortar trozos del array: (i donde quieres que empiece, i donde quieres que
+          acabe no inclusive)*/}
+          {cats.slice(currentPageInitialCatIndex, currentPageInitialCatIndex + visibleCats).map(cat => (
+            <div key={cat.id} className="card-item">
               <CatCard
-                image={cats[index].image}
-                name={cats[index].name}
-                description={cats[index].description}
-                tag={cats[index].tag}
-                buttonText="¡Adóptame!"
-                onButtonClick={() => handleAdoptClick(cats[index].id)}
+                image={cat.image}
+                name={cat.name}
+                description={cat.description}
+                tag={cat.tag}
+                buttonText="Adopt me"
+                onButtonClick={() => handleAdoptClick(cat.id)}
               />
             </div>
           ))}
         </div>
         
-        <button 
-          className="slider-nav slider-next"
-          onClick={nextSlide}
-        >
-          &gt;
-        </button>
+        {currentPage < lastPage ? (
+          <button 
+            className="slider-nav slider-next"
+            onClick={nextSlide}
+          >
+            &gt;
+          </button>
+        ) : null}
       </div>
       
       <div className="slider-indicators">
-        {Array.from({ length: Math.max(1, cats.length - (visibleCats - 1)) }, (_, i) => (
+        {Array.from({ length: totalPages}, (_, i) => ( //from() genera un array en el que cada elemento
+        // tiene un botón que corresponde a cada posición de página 
           <button
             key={i}
-            className={`slider-dot ${i === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(i)}
+            className={`slider-dot ${i === currentPage ? 'active' : ''}`}
+            onClick={() => setCurrentPage(i)}
           />
         ))}
       </div>

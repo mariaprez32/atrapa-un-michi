@@ -1,3 +1,25 @@
+:root {
+  /* Text Colors */
+  --color-dark-backgrounds: #fce7f3;
+  --color-descriptions: #db2777;
+  --pink-700: #be185d;
+  /* for headings */
+  --pink-800: #9d174d;
+  /* for strong headings */
+
+  /* UI Element Colors */
+  --pink-100-ui: #fce7f3;
+  /* for backgrounds of icons */
+  --pink-200-ui: #fbcfe8;
+  /* for borders and progress bar background */
+  --pink-400-ui: #f472b6;
+  /* for header gradient */
+  --pink-500-ui: #ec4899;
+  /* for buttons and active elements */
+  --pink-600-ui: #db2777;
+  /* for button hover states */
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
