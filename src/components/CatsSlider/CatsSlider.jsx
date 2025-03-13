@@ -30,15 +30,19 @@ const CatsSlider = () => {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
+      const lastIndex = cats.length - (visibleCats - 1) // 8
       const nextIndex = prevIndex + 1;
-      return nextIndex >= cats.length - (visibleCats - 1) ? 0 : nextIndex;
+      // return nextIndex >= cats.length - (visibleCats - 1) ? 0 : nextIndex;
+      return nextIndex >= lastIndex ? 0 : nextIndex; 
     });
   };
   
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => {
-      const lastIndex = cats.length - visibleCats;
-      return prevIndex === 0 ? lastIndex > 0 ? lastIndex : 0 : prevIndex - 1;
+      // const lastIndex = cats.length - visibleCats;
+      // return prevIndex === 0 ? lastIndex > 0 ? lastIndex : 0 : prevIndex - 1;
+      const lastIndex = cats.length - 1; // 9
+      return prevIndex === 0 ? lastIndex : prevIndex - 1;
     });
   };
 
