@@ -12,8 +12,9 @@ const CatsSlider = () => {
   const navigate = useNavigate();
   const visibleCats = 3; 
 
-  const lastPage = Math.floor(cats.length / visibleCats); // lastPage es la página 3 (0, 1, 2, 3)
-  const totalPages = lastPage + 1; //son 4 páginas porque son 3 gatos en 3 páginas + 1 gato en una 1
+
+  const lastPage = Math.floor(cats.length / visibleCats); // lastPage es la página 3 (0, 1, 2) (9 gatos)
+  const totalPages = lastPage + 1; //son 4 páginas porque son 3 gatos en 3 páginas + 1 gato en una 1 (10 gatos)
   const currentPageInitialCatIndex = currentPage * visibleCats // índice del primer elemento de la página actual
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const CatsSlider = () => {
         setCats(catsData);
         setLoading(false);
       } catch (err) {
-        setError(err.message || 'Error al cargar los gatitos');
+        setError(err.message || 'Error loading cats.');
         setLoading(false);
       }
     };
@@ -48,7 +49,7 @@ const CatsSlider = () => {
     <div className="slider-loading">
       <div>
         <div className="loading-spinner"></div>
-        <p>Loading adorable kitties...</p>
+        <p>Loading adorable cats...</p>
       </div>
     </div>
   );
@@ -95,7 +96,8 @@ const CatsSlider = () => {
                 description={cat.description}
                 tag={cat.tag}
                 buttonText="Adopt me"
-                onButtonClick={() => handleAdoptClick(cat.id)}
+                onButtonClick={() => handleAdoptClick(cat.id)} //Se pasa como función anónima
+                //y solo se ejecuta cuando el usuario haga clic en el botón.
               />
             </div>
           ))}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdoptPage = () => {
   return (
-    <div>AdoptPage</div>
+    <div>Page under construction.</div>
   )
 }
 

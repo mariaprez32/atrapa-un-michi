@@ -14,7 +14,7 @@ const CatCard = ({ image, name, description, buttonText, onButtonClick, tag }) =
         </div>
         <div className="card-footer">
           <Button
-            onClick={onButtonClick}
+            onButtonClick={onButtonClick}
             buttonText={buttonText}>
             </Button>
         </div>

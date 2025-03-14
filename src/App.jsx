@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, Navigate, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import AdoptPage from "./pages/AdoptPage/AdoptPage";
 import "./App.css";
