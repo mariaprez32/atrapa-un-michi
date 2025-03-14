@@ -1,4 +1,11 @@
 :root {
+
+  --bg-color: #fdf2f8;
+  --btn-color: #ec4899;
+  --footer-bg-color: #f9a8d4;
+
+  
+
   /* Text Colors */
   --color-dark-backgrounds: #fce7f3;
   --color-descriptions: #db2777;
@@ -24,7 +31,7 @@ html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #fdf2f8;
+  background-color: var(--bg-color);
 }
 
 * {

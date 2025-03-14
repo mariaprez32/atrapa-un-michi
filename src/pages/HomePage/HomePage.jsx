@@ -1,5 +1,6 @@
 import React from 'react';
 import CatsSlider from "../../components/CatsSlider/CatsSlider"; 
+import "./HomePage.css"
 
 const HomePage = () => {
   return (

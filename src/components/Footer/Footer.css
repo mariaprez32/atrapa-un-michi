@@ -8,5 +8,17 @@ footer {
     text-align: center;
     padding: 2em 0 2em 0;
     margin-top: 5em;
-    background-color: #f9a8d4;
+    background-color: var(--footer-bg-color);
+  }
+
+    
+  footer a {
+    text-decoration: none;
+    color: #9d174d;
+  }
+  
+  footer a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
   }

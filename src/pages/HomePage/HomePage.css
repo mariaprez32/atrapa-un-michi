@@ -1,4 +1,19 @@
-.home-page {
-    font-size: 6em;
+.section-title {
     text-align: center;
-}
+    font-size: 2em;
+    margin: 1em;
+    position: relative;
+    padding-bottom: 15px;
+    color: #75053d;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #ec4899;
+  }
