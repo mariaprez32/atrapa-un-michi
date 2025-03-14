@@ -1,12 +1,12 @@
 import React from 'react';
-import CatsSlider from "../components/CatsSlider/CatsSlider"; 
+import CatsSlider from "../../components/CatsSlider/CatsSlider"; 
 
 const HomePage = () => {
   return (
     <div className="home-page">
       <section className="slider-section">
         <div className="container">
-          <h2 className="section-title">Gatitos en busca de hogar</h2>
+          <h2 className="section-title">Cats looking for a home</h2>
           <CatsSlider />
         </div>
       </section>

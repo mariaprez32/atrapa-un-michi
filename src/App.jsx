@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AdoptPage from "./pages/AdoptPage";
+import HomePage from "./pages/HomePage/HomePage";
+import AdoptPage from "./pages/AdoptPage/AdoptPage";
 import "./App.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 
 
 function App() {
   return (
     <>
-      <header>
-        <h1>
-          <Link to="/">Catch a kitty</Link>
-        </h1>
-      </header>
+    <Header></Header>
       <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -20,10 +19,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-      {/* <footer>
-        <p>© 2025 Catch a kitty. All rights reserved.</p>
-        <p>Contact us: <a href="mailto:adopt@catchakitty.com">adopt@catchakitty.com</a></p>
-      </footer> */}
+<Footer></Footer>
     </>
   );
 }

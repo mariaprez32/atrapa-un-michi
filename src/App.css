@@ -33,65 +33,6 @@ html, body, #root {
   padding: 0;
 }
 
-header {
-  height: 20vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 1em;
 
-}
-header h1 {
-  color: #9d174d;
-  font-size: 4em;
-}
 
-header a {
-  text-decoration: none;
-}
 
-a:visited, a:hover, a:active {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 40px;
-  position: relative;
-  padding-bottom: 15px;
-  color: #75053d;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: #ec4899;
-}
-
-main {
-  height: 60vh;
-}
-
-footer {
-  height:5vh;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  display: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2em 0 4em 0;
-  background-color: #f9a8d4;
-}
