@@ -2,7 +2,7 @@
 
 .card {
     width: 300px;
-    height: 55vh;
+    height: 57vh;
     background-color: var(--cards-bg);
     border-radius: 16px;
     overflow: hidden;
@@ -24,6 +24,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    object-fit: cover;
 }
 
 .card-image::before {
