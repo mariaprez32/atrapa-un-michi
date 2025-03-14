@@ -2,7 +2,7 @@ button {
     display: inline-block;
     padding: 10px 20px;
     background: var(--btn-color);
-    color: #ffffff;
+    color: var(--text-color-light);
     text-decoration: none;
     border-radius: 25px;
     border: none;
@@ -21,7 +21,7 @@ button::before {
     height: 100%;
     background: linear-gradient(135deg,
             transparent,
-            rgba(255, 255, 255, 0.3),
+            var(--shades-cards),
             transparent);
     transition: all 0.4s ease;
 }
@@ -32,5 +32,5 @@ button:hover::before {
 
 button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 5px 15px var(--shades-buttons);
 }

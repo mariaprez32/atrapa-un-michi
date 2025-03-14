@@ -14,16 +14,14 @@ footer {
   left: 0;
 }
 
-
-footer a {
-  text-decoration: none;
-  color: #9d174d;
-}
-
-footer a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
+    
+  footer a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+  }
+  
+  footer a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }

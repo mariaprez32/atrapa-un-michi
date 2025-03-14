@@ -4,7 +4,7 @@
     margin: 1em;
     position: relative;
     padding-bottom: 15px;
-    color: #75053d;
+    color: var(--text-color-darkest);
   }
   
   .section-title::after {
@@ -15,5 +15,5 @@
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background-color: #ec4899;
+    background-color: var(--bg-title);
   }

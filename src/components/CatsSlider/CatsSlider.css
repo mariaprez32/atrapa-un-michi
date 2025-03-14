@@ -36,7 +36,7 @@
   
   .slider-nav {
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: var(--nav-color);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -69,14 +69,14 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--shades-cards);
     border: none;
     cursor: pointer;
     padding: 0;
   }
   
   .slider-dot.active {
-    background-color: #333;
+    background-color: var(--card-title-color);
   }
   
   /* Estilos responsivos */
