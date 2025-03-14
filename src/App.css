@@ -1,30 +1,25 @@
 :root {
 
+  --cards-bg: #ffffff;
   --bg-color: #fdf2f8;
+  --line-light: #fce7f3;
+  --line-accent: #ec4899;
   --btn-color: #ec4899;
   --footer-bg-color: #f9a8d4;
+  --text-color-light: #ffffff;
+  --nav-color: #ffffff;
+  --shades-buttons: #f472b6;
+  --shades-cards: #dbdbdb;
+  --card-title-color: #1f2937;
+  --shades-cards-hover: #353535;
+  --text-color-description: #4b5563;
+  --text-color-tags: #db2777;
+  --bg-color-tags: #fce7f3;
+  --text-color-dark: #9d174d;
+  --text-color-darkest: #75053d;
+  --bg-title: #ec4899;
 
-  
 
-  /* Text Colors */
-  --color-dark-backgrounds: #fce7f3;
-  --color-descriptions: #db2777;
-  --pink-700: #be185d;
-  /* for headings */
-  --pink-800: #9d174d;
-  /* for strong headings */
-
-  /* UI Element Colors */
-  --pink-100-ui: #fce7f3;
-  /* for backgrounds of icons */
-  --pink-200-ui: #fbcfe8;
-  /* for borders and progress bar background */
-  --pink-400-ui: #f472b6;
-  /* for header gradient */
-  --pink-500-ui: #ec4899;
-  /* for buttons and active elements */
-  --pink-600-ui: #db2777;
-  /* for button hover states */
 }
 
 html, body, #root {

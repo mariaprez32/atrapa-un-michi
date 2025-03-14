@@ -3,7 +3,7 @@
 .card {
     width: 320px;
     height: 60vh;
-    background-color: #ffffff;
+    background-color: var(--cards-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@
     height: 100%;
     background: linear-gradient(to bottom,
             transparent,
-            rgba(255, 255, 255, 0.1) 50%,
+           var(--shades-cards-hover) 50%,
             transparent);
     transform: rotate(45deg);
     animation: shine 3s infinite;
@@ -58,7 +58,7 @@
 .card-title {
     font-size: 24px;
     font-weight: 600;
-    color: #1f2937;
+    color: var(--card-title-color);
     margin: 0 0 16px;
     position: relative;
     padding-bottom: 10px;
@@ -71,7 +71,7 @@
     bottom: 0;
     width: 50px;
     height: 3px;
-    background-color: #ec4899;
+    background-color: var(--line-accent);
     transition: width 0.3s ease;
 }
 
@@ -81,7 +81,7 @@
 
 .card-description {
     font-size: 14px;
-    color: #4b5563;
+    color: var(text-color-description);
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -95,8 +95,8 @@
 
 .card-tag {
     font-size: 12px;
-    color: #db2777;
-    background-color: #fce7f3;
+    color: var(--text-color-tags);
+    background-color: var(--bg-color-tags);
     padding: 4px 10px;
     border-radius: 20px;
     transition: all 0.3s ease;
@@ -115,27 +115,8 @@
     justify-content: center;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--line-light);
     margin-bottom: 16px;
-}
-
-.card-stats {
-    display: flex;
-    gap: 16px;
-}
-
-.card-stat {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 14px;
-    color: #6b7280;
-}
-
-.card-stat-icon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
 }
 
 @keyframes float {

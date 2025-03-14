@@ -14,7 +14,7 @@ footer {
     
   footer a {
     text-decoration: none;
-    color: #9d174d;
+    color: var(--text-color-dark);
   }
   
   footer a:visited, a:hover, a:active {
