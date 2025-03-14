@@ -1,0 +1,17 @@
+.under-construction {
+    display: column;
+}
+
+.under-construction p {
+    font-size: 3em;
+    margin-top: 1em;
+    text-align: center;
+
+}
+
+.under-construction img {
+    width: 20em;
+    height: 18em;
+    display: block;
+    margin: 0 auto;
+}
