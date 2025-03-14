@@ -6,20 +6,18 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-
-
 function App() {
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <main>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/adopt/:id" element={<AdoptPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/adopt/:id" element={<AdoptPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-{/* <Footer></Footer> */}
+      <Footer></Footer>
     </>
   );
 }

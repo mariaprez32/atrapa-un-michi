@@ -1,8 +1,8 @@
 
 
 .card {
-    width: 320px;
-    height: 60vh;
+    width: 300px;
+    height: 55vh;
     background-color: var(--cards-bg);
     border-radius: 16px;
     overflow: hidden;
@@ -20,7 +20,7 @@
 .card-image {
     display: block;
     margin: 0 auto;
-    height: 200px;
+    height: 250px;
     width: 100%;
     position: relative;
     overflow: hidden;
