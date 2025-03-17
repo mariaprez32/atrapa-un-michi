@@ -31,7 +31,11 @@ button:hover::before {
     left: 100%;
 }
 
-button:hover {
+button.light:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px var(--shades-buttons);
+}
+button.dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--dark-shades-buttons);
 }

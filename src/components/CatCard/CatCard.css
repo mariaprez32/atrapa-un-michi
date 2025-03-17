@@ -82,7 +82,7 @@
 
 .card-description {
     font-size: 14px;
-    color: var(text-color-description);
+    color: var(--text-color-description);
     line-height: 1.6;
     margin-bottom: 20px;
 }

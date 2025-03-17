@@ -1,8 +1,15 @@
-header {
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+ }
+
+  header {
     height: 10vh;
     width: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: space-between;
   }
 
   img {
@@ -14,6 +21,7 @@ header {
     color: var(--text-color-dark);
     font-size: 4em;
     margin: 10px 0;
+    flex-grow: 1;
   }
   
   header a {

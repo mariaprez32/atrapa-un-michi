@@ -1,4 +1,4 @@
-:root {
+:root.light {
 
   --cards-bg: #ffffff;
   --bg-color: #fdf2f8;
@@ -25,6 +25,31 @@
   --font-family-secondary: DynaPuff;
 
 }
+:root.dark {
+  /* Dark Theme */
+    --cards-bg: #1f1f1f;
+    --bg-color: #343434;
+    --line-light: #4a4a4a;
+    --line-accent: #5fcd05;
+    --btn-color: #5fcd05;
+    --footer-bg-color: #1e1e1e;
+    --text-color-light: #ffffff;
+    --nav-color: #ffffff;
+    --shades-buttons: #4caf50;
+    --shades-cards: #878181;
+    --card-title-color: #ffffff;
+    --shades-cards-hover: #4f4f4f;
+    --text-color-description: #b0b0b0;
+    --text-color-tags: #5fcd05;
+    --bg-color-tags: #f5efef;
+    --text-color-dark: #5fcd05;
+    --text-color-darkest: #ffffff;
+    --bg-title: #5fcd05;
+    --p-color: white;
+    /* Text */
+      --font-family-main: Sour Gummy;
+      --font-family-secondary: DynaPuff;
+}
 
 html, body, #root {
   height: 100%;
@@ -32,6 +57,7 @@ html, body, #root {
   padding: 0;
   background-color: var(--bg-color);
 }
+
 
 * {
   box-sizing: border-box;
