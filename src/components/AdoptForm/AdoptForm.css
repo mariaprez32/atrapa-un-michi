@@ -1,0 +1,21 @@
+.adopt-form {
+display: flex;
+flex-direction: column;
+gap: 0.5em;
+background-color: rgb(246, 234, 234);
+padding: 2em;
+height: 70vh;
+border-radius: 20px;
+}
+
+.adopt-input {
+    height: 1.8em;
+    font-size: 1em;
+}
+
+.form-error-text {
+    font-size: 1em !important; 
+    background-color: transparent !important;
+    color: red !important;
+    margin-top: 0 !important;
+}
