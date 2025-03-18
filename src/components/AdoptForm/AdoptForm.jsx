@@ -166,7 +166,7 @@ export const AdoptForm = () => {
     },
   })}
   placeholder="Tell us a little about yourself and why you want to adopt (optional)."
-  rows="4"
+  rows="5"
 />
 {errors.aboutMe && <p className="form-error-text">{errors.aboutMe.message}</p>}
 

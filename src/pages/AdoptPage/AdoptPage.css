@@ -1,3 +1,5 @@
 .adopt-page {
 margin: 3em 5em;
+display: flex;
+justify-content: center;
 }

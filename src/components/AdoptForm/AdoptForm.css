@@ -5,12 +5,28 @@ gap: 0.5em;
 background-color: rgb(246, 234, 234);
 padding: 2em;
 height: 70vh;
+max-width: 450px;
+width: fit-content;
 border-radius: 20px;
+align-items: center;
+}
+
+.adopt-form h3 {
+    font-size: 2em;
+}
+
+.adopt-form p {
+    font-size: 1em;
 }
 
 .adopt-input {
     height: 1.8em;
+    width: 95%;
     font-size: 1em;
+}
+
+.adopt-text-area {
+    width: 95%;
 }
 
 .form-error-text {
