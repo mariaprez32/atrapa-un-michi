@@ -41,8 +41,8 @@ const CatsSlider = () => {
     setCurrentPage(currentPage - 1);
   };
 
-  const handleAdoptClick = (id) => {
-    navigate(`/adopt/${id}`);
+  const handleAdoptClick = (cat) => {
+    navigate(`/adopt`, {state: {cat}});
   };
 
   if (loading) return (
@@ -96,7 +96,7 @@ const CatsSlider = () => {
                 description={cat.description}
                 tag={cat.tag}
                 buttonText="Adopt me"
-                onButtonClick={() => handleAdoptClick(cat.id)} //Se pasa como función anónima
+                onButtonClick={() => handleAdoptClick(cat)} //Se pasa como función anónima
                 //y solo se ejecuta cuando el usuario haga clic en el botón.
               />
             </div>

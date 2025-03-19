@@ -1,11 +1,14 @@
 import React from 'react'
 import "./AdoptPage.css"
 import AdoptForm from '../../components/AdoptForm/AdoptForm';
+import { useLocation } from 'react-router-dom';
 
 const AdoptPage = () => {
+ //el useLocation hace posible obtener el objeto de la pantalla anterior, pero al volver a la pantalla anterior el fetch nos refresca los datos
+  const {state:{cat}} = useLocation() 
   return (
     <div className='adopt-page'>
-    <AdoptForm></AdoptForm>
+    <AdoptForm cat={cat}></AdoptForm>
     </div>
   );
 };

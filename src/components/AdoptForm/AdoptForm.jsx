@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./AdoptForm.css";
 
-export const AdoptForm = () => {
+export const AdoptForm = ({cat}) => {
   //desestructuración del useForm
   const {
     register,
@@ -26,7 +26,7 @@ export const AdoptForm = () => {
   return (
     // handleSubmit valida los datos y si está bien los printea (o los envía al servidor)
     <form className="adopt-form" onSubmit={handleSubmit(onSubmit)}>
-      <h3>Adopt...</h3>
+      <h3>Adopt {cat.name}</h3>
       <p>
         Please complete all sections of this form to apply for adoption. We'll
         review your application and contact you within 2-3 business days.
