@@ -5,13 +5,14 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    position: absolute;
 }
 
 .theme-toggle {
- width: 15%;
- height: 50%;
+ width: 8em;
+ height: 2em;
  margin-top: 30px;
- margin-right: 30px;
+ margin-left: 30px;
 }
 
 .theme-toggle:hover {
