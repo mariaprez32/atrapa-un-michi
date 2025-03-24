@@ -39,6 +39,10 @@ html, body, #root {
   padding: 0;
 }
 
+button {
+  cursor: url('/koi.png') 15 15, auto;
+}
+
 
 
 
