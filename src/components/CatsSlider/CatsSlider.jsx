@@ -6,16 +6,28 @@ import './CatsSlider.css';
 
 const CatsSlider = () => {
   const [cats, setCats] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const visibleCats = 3; 
+  const visibleCats = 3;
 
 
-  const lastPage = Math.floor(cats.length / visibleCats); // lastPage es la página 3 (0, 1, 2) (9 gatos)
-  const totalPages = lastPage + 1; //son 4 páginas porque son 3 gatos en 3 páginas + 1 gato en una 1 (10 gatos)
-  const currentPageInitialCatIndex = currentPage * visibleCats // índice del primer elemento de la página actual
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem('favoriteCats');
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favoriteCats', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const lastPage = Math.floor(cats.length / visibleCats);
+  const totalPages = lastPage + 1;
+  const currentPageInitialCatIndex = currentPage * visibleCats;
 
   useEffect(() => {
     const loadCats = async () => {
@@ -43,6 +55,16 @@ const CatsSlider = () => {
 
   const handleAdoptClick = (id) => {
     navigate(`/adopt/${id}`);
+  };
+
+  const toggleFavorite = (catId) => {
+    setFavorites(prevFavorites => {
+      if (prevFavorites.includes(catId)) {
+        return prevFavorites.filter(id => id !== catId);
+      } else {
+        return [...prevFavorites, catId];
+      }
+    });
   };
 
   if (loading) return (
@@ -79,15 +101,12 @@ const CatsSlider = () => {
           <button 
             className="slider-nav slider-prev"
             onClick={prevSlide}
-
           >
             &lt;
           </button>
         ) : null}
         
         <div className="multi-card-wrapper">
-          {/* el slice es para cortar trozos del array: (i donde quieres que empiece, i donde quieres que
-          acabe no inclusive)*/}
           {cats.slice(currentPageInitialCatIndex, currentPageInitialCatIndex + visibleCats).map(cat => (
             <div key={cat.id} className="card-item">
               <CatCard
@@ -96,8 +115,9 @@ const CatsSlider = () => {
                 description={cat.description}
                 tag={cat.tag}
                 buttonText="Adopt me"
-                onButtonClick={() => handleAdoptClick(cat.id)} //Se pasa como función anónima
-                //y solo se ejecuta cuando el usuario haga clic en el botón.
+                onButtonClick={() => handleAdoptClick(cat.id)}
+                isFavorite={favorites.includes(cat.id)}
+                onToggleFavorite={() => toggleFavorite(cat.id)}
               />
             </div>
           ))}
@@ -114,8 +134,7 @@ const CatsSlider = () => {
       </div>
       
       <div className="slider-indicators">
-        {Array.from({ length: totalPages}, (_, i) => ( //from() genera un array en el que cada elemento
-        // tiene un botón que corresponde a cada posición de página 
+        {Array.from({ length: totalPages}, (_, i) => (
           <button
             key={i}
             className={`slider-dot ${i === currentPage ? 'active' : ''}`}
