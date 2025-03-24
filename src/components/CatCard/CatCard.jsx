@@ -1,6 +1,7 @@
 import React from 'react';
 import './CatCard.css';
 import Button from '../Button/Button';
+import { FaHeart } from "react-icons/fa";
 
 const CatCard = ({ image, name, description, buttonText, onButtonClick, tag, isFavorite, onToggleFavorite }) => {
   return (
@@ -12,7 +13,7 @@ const CatCard = ({ image, name, description, buttonText, onButtonClick, tag, isF
           onClick={onToggleFavorite}
           aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         >
-          ♥
+          <FaHeart />
         </button>
       </div>
       <div className='card-content-wrapper'>
