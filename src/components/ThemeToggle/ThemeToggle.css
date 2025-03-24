@@ -6,13 +6,13 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     position: absolute;
-}
-
-.theme-toggle {
- width: 8em;
- height: 2em;
- margin-top: 30px;
- margin-left: 30px;
+    width: 8em;
+    height: 2em;
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .theme-toggle:hover {
