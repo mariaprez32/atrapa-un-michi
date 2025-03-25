@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext/ThemeContext';
 import './ThemeToggle.css';
+import { FaRegMoon, FaRegSun } from 'react-icons/fa';
 
 function ThemeToggle() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -15,7 +16,7 @@ function ThemeToggle() {
 
   return (
     <button className={`theme-toggle ${theme}`} onClick={toggleTheme}>
-      {theme === 'light' ? 'Dark mode' : 'Light mode'}
+      {theme === 'light' ? <FaRegMoon /> : <FaRegSun/>}
     </button>
   );
 }

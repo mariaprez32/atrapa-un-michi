@@ -5,37 +5,88 @@ body {
   margin: 0;
  }
 
-  header {
-    height: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.navbar {
+  height: 10vh;
+  width: 100%;
+  background-color: var(--nav-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title {
+  text-decoration: none;
+  color: var(--text-color-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-family-main);
+  font-size: 2rem;
+}
+
+.navbar-title img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color-dark);
+  font-family: var(--font-family-secondary);
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--line-light);
+  color: var(--line-accent);
+}
+
+
+main {
+  margin-top: 10vh;
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
   }
 
-  img {
-    width: 60px;
-    height: 60px;
+  .navbar-title {
+    font-size: 1.5rem;
   }
 
-  header h1 {
-    color: var(--text-color-dark);
-    font-size: 4em;
-    margin: 10px 0;
-    flex-grow: 1;
+  .navbar-title img {
+    width: 30px;
+    height: 30px;
   }
-  
-  header a {
-    text-decoration: none;
-    color: var(--text-color-dark);
-    display: flex;
-    align-items: center;
-    gap: 0.1em;
-    justify-content: center;
-    font-family: var(--font-family-main);
+
+  .navbar-links {
+    gap: 1rem;
   }
-  
-  a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
+}
