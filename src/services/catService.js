@@ -28,48 +28,13 @@ export const fetchCats = async() => {
   }
 };
 
-/**
- * Obtiene los detalles de un gato específico por su ID
- * @param {string} id - ID del gato
- */
-export const fetchCatById = async (id) => {
-  if (!id) {
-    console.error('Se requiere un ID para obtener un gato específico');
-    return null;
-  }
-
-  try {
-   
-    const response = await fetch(`${API_URL}/images/${id}`);
-    
-    if (!response.ok) {
-      console.error(`Error al obtener el gato: ${response.status}`);
-      return null;
-    }
-    
-    const data = await response.json();
-    
-    return {
-      id: data.id,
-      image: data.url,
-      name: getRandomName(),
-      description: getRandomDescription(),
-      status: 'Disponible para adopción',
-      tag: getRandomTag()
-    };
-    
-  } catch (error) {
-    console.error('Error en fetchCatById:', error.message);
-    return null;
-  }
-};
 
 function getRandomName() {
   const names = [
     'Luna', 'Simba', 'Milo', 'Nala', 'Oliver', 'Loki', 'Coco',
-    'Toby', 'Bella', 'Leo', 'Rocky', 'Pelusa', 'Garfield', 'Kitty',
-    'Oreo', 'Felix', 'Fluffy', 'Kira', 'Tom', 'Manchas', 'Silvestre'
-  ];
+    'Toby', 'Bella', 'Leo', 'Rocky', 'Fuzzy', 'Garfield', 'Kitty',
+    'Oreo', 'Felix', 'Fluffy', 'Kira', 'Tom', 'Spot', 'Sylvester'
+  ];  
   
   const randomIndex = Math.floor(Math.random() * names.length);
   return names[randomIndex];
@@ -77,17 +42,18 @@ function getRandomName() {
 
 function getRandomDescription() {
   const descriptions = [
-    'Es muy juguetón y le encanta perseguir pelotas.',
-    'Es tranquilo y le gusta dormir todo el día.',
-    'Es muy cariñoso y siempre quiere estar en tu regazo.',
-    'Es independiente pero muy leal a sus dueños.',
-    'Le encanta trepar y explorar lugares altos.',
-    'Es muy sociable y se lleva bien con otros animales.',
-    'Es tímido al principio pero muy dulce cuando toma confianza.',
-    'Tiene una personalidad muy curiosa y le gusta investigar todo.',
-    'Es un experto cazador de juguetes.',
-    'Es muy vocal y siempre te contará su día con maullidos.'
+    'He is very playful and loves chasing balls.',
+    'He is calm and enjoys sleeping all day.',
+    'He is very affectionate and always wants to be on your lap.',
+    'He is independent but very loyal to his owners.',
+    'He loves climbing and exploring high places.',
+    'He is very sociable and gets along well with other animals.',
+    'He is shy at first but very sweet once he gains confidence.',
+    'He has a very curious personality and loves to investigate everything.',
+    'He is an expert toy hunter.',
+    'He is very vocal and will always tell you about his day with meows.'
   ];
+  
   
   const randomIndex = Math.floor(Math.random() * descriptions.length);
   return descriptions[randomIndex];
@@ -107,5 +73,5 @@ function getRandomTag() {
 
 export default {
   fetchCats,
-  fetchCatById
+  // fetchCatById
 };

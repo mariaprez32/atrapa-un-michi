@@ -53,8 +53,8 @@ const CatsSlider = () => {
     setCurrentPage(currentPage - 1);
   };
 
-  const handleAdoptClick = (id) => {
-    navigate(`/adopt/${id}`);
+  const handleAdoptClick = (cat) => {
+    navigate(`/adopt`, {state: {cat}});
   };
 
   const toggleFavorite = (catId) => {

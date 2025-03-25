@@ -1,24 +1,7 @@
-.under-construction {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2em;
-    justify-content: center;
-    align-items: center;
-
+.adopt-page {
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-.under-construction p {
-    font-size: 2.5em;
-    margin-top: 1.3em;
-    background-color: var(--footer-bg-color);
-    width: fit-content;
-    padding: 0 0.2em;
-    color: var(--p-color);
-}
 
-.under-construction img {
-    width: 20em;
-    height: 18em;
-    display: block;
-    margin: 0 auto;
-}

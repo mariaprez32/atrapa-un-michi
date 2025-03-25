@@ -7,12 +7,7 @@ footer {
   align-items: center;
   text-align: center;
   padding: 2em 0 2em 0;
-  margin-top: 5em;
   background-color: var(--footer-bg-color);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  color: var(--card-title-color);
 }
 
     

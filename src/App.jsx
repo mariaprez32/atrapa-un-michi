@@ -13,7 +13,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/adopt/:id" element={<AdoptPage />} />
+          <Route path="/adopt" element={<AdoptPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
