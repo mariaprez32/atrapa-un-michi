@@ -67,7 +67,7 @@ html, body, #root {
 }
 
 button {
-  cursor: url('/koi.png') 15 15, auto;
+  cursor: pointer;
 }
 
 

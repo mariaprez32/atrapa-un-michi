@@ -3,15 +3,26 @@ import './Header.css'
 import { Link } from "react-router-dom";
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
-
 const Header = () => {
   return (
-    <header>
-    <h1>
-      <Link to="/"><img src="/paw-logo.png"/>Catch a kitty<img src="/paw-logo.png"/></Link>
-      </h1>
-      <ThemeToggle/>
-  </header>
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <Link to="/" className="navbar-title">
+          <img src="/paw-logo.png" alt="Paw logo" />
+          Catch a kitty
+        </Link>
+      </div>
+      
+      <div className="navbar-links">
+        <Link to="/" className="nav-link">
+          Inicio
+        </Link>
+        <Link to="/favorites" className="nav-link">
+          Favoritos
+        </Link>
+        <ThemeToggle />
+      </div>
+    </nav>
   )
 }
 
