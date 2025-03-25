@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./AdoptForm.css";
+import Button from "../Button/Button";
 
-export const AdoptForm = ({cat}) => {
+export const AdoptForm = ({ cat }) => {
   //desestructuración del useForm
   const {
     register,
@@ -34,6 +35,7 @@ export const AdoptForm = ({cat}) => {
 
       {/* los inputs son registrados (y por lo tanto manejados por useForm) y se les asigna un nombre para distinguirlos */}
 
+      <label htmlFor="firstName">First Name</label>
       <input
         className="adopt-input"
         {...register("firstName", {
@@ -49,11 +51,13 @@ export const AdoptForm = ({cat}) => {
         })}
         type="text"
         placeholder="First Name"
+        id="firstName"
       />
       {errors.firstName && (
         <p className="form-error-text">{errors.firstName.message}</p>
       )}
 
+<label htmlFor="lastName">Last Name</label>
       <input
         className="adopt-input"
         {...register("lastName", {
@@ -69,12 +73,13 @@ export const AdoptForm = ({cat}) => {
         })}
         type="text"
         placeholder="Last Name"
+        id="lastName"
       />
       {errors.lastName && (
         <p className="form-error-text">{errors.lastName.message}</p>
       )}
 
-      {/* Input for Phone Number (Spain) */}
+<label htmlFor="phone">Phone</label>
       <input
         className="adopt-input"
         {...register("phone", {
@@ -86,11 +91,12 @@ export const AdoptForm = ({cat}) => {
         })}
         type="tel"
         placeholder="Phone Number"
+        id="phone"
       />
       {errors.phone && (
         <p className="form-error-text">{errors.phone.message}</p>
       )}
-
+ <label htmlFor="email">Email</label>
       <input
         className="adopt-input"
         {...register("email", {
@@ -102,11 +108,12 @@ export const AdoptForm = ({cat}) => {
         })}
         type="email"
         placeholder="Email"
+        id="email"
       />
       {errors.email ? (
         <p className="form-error-text">{errors.email.message}</p>
       ) : null}
-
+ <label htmlFor="city">City</label>
       <input
         className="adopt-input"
         {...register("city", {
@@ -122,10 +129,13 @@ export const AdoptForm = ({cat}) => {
         })}
         type="text"
         placeholder="City"
+        id="city"
       />
       {errors.city && <p className="form-error-text">{errors.city.message}</p>}
-
+      
+      <label htmlFor="autonomousCommunity">Autonomous Community</label>
       <select
+       id="autonomousCommunity"
         className="adopt-input"
         {...register("autonomousCommunity", {
           required: "Autonomous community is required",
@@ -156,25 +166,26 @@ export const AdoptForm = ({cat}) => {
         <p className="form-error-text">{errors.autonomousCommunity.message}</p>
       )}
 
+      <textarea
+        className="adopt-text-area"
+        {...register("aboutMe", {
+          maxLength: {
+            value: 500,
+            message: "Maximum length is 500 characters",
+          },
+        })}
+        placeholder="Tell us a little about yourself and why you want to adopt (optional)."
+        rows="5"
+      />
+      {errors.aboutMe && (
+        <p className="form-error-text">{errors.aboutMe.message}</p>
+      )}
 
-<textarea
-  className="adopt-text-area"
-  {...register("aboutMe", {
-    maxLength: {
-      value: 500,
-      message: "Maximum length is 500 characters",
-    },
-  })}
-  placeholder="Tell us a little about yourself and why you want to adopt (optional)."
-  rows="5"
-/>
-{errors.aboutMe && <p className="form-error-text">{errors.aboutMe.message}</p>}
-
-
-
-      <button disabled={isSubmitting} type="submit">
-        {isSubmitting ? "Loading..." : "Submit"}
-      </button>
+      <Button
+        disabled={isSubmitting}
+        type="submit"
+        buttonText={isSubmitting ? "Loading..." : "Submit"}
+      ></Button>
       {errors.root ? (
         <p className="form-error-text">{errors.root.message}</p>
       ) : null}
