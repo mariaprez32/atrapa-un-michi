@@ -11,8 +11,6 @@ const CatsSlider = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const visibleCats = 3;
-
-
   const lastPage = Math.floor(cats.length / visibleCats);
   const totalPages = lastPage + 1;
   const currentPageInitialCatIndex = currentPage * visibleCats;

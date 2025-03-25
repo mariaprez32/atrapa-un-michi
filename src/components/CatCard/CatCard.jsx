@@ -1,9 +1,9 @@
 import React from 'react';
 import './CatCard.css';
 import Button from '../Button/Button';
-import { FaHeart } from "react-icons/fa";
 
-const CatCard = ({ image, name, description, buttonText, onButtonClick, tag, isFavorite, onToggleFavorite }) => {
+
+const CatCard = ({ image, name, description, buttonText, onButtonClick, tag}) => {
   return (
     <article className="card">
       <div className="card-image-container">
