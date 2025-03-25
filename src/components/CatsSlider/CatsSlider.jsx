@@ -6,24 +6,12 @@ import './CatsSlider.css';
 
 const CatsSlider = () => {
   const [cats, setCats] = useState([]);
-  const [favorites, setFavorites] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const visibleCats = 3;
 
-
-  useEffect(() => {
-    const savedFavorites = localStorage.getItem('favoriteCats');
-    if (savedFavorites) {
-      setFavorites(JSON.parse(savedFavorites));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('favoriteCats', JSON.stringify(favorites));
-  }, [favorites]);
 
   const lastPage = Math.floor(cats.length / visibleCats);
   const totalPages = lastPage + 1;
@@ -57,15 +45,6 @@ const CatsSlider = () => {
     navigate(`/adopt`, {state: {cat}});
   };
 
-  const toggleFavorite = (catId) => {
-    setFavorites(prevFavorites => {
-      if (prevFavorites.includes(catId)) {
-        return prevFavorites.filter(id => id !== catId);
-      } else {
-        return [...prevFavorites, catId];
-      }
-    });
-  };
 
   if (loading) return (
     <div className="slider-loading">
@@ -116,8 +95,6 @@ const CatsSlider = () => {
                 tag={cat.tag}
                 buttonText="Adopt me"
                 onButtonClick={() => handleAdoptClick(cat.id)}
-                isFavorite={favorites.includes(cat.id)}
-                onToggleFavorite={() => toggleFavorite(cat.id)}
               />
             </div>
           ))}

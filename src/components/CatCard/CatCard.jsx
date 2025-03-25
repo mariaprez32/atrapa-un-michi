@@ -8,13 +8,6 @@ const CatCard = ({ image, name, description, buttonText, onButtonClick, tag, isF
     <article className="card">
       <div className="card-image-container">
         <img className="card-image" src={image} alt={name} />
-        <button 
-          className={`favorite-button ${isFavorite ? 'favorite' : ''}`}
-          onClick={onToggleFavorite}
-          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-        >
-          <FaHeart />
-        </button>
       </div>
       <div className='card-content-wrapper'>
         <div className="card-content">
