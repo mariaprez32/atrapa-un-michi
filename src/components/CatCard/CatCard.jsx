@@ -2,29 +2,29 @@ import React from "react";
 import "./CatCard.css";
 import Button from "../Button/Button";
 import { FaHeart } from "react-icons/fa";
+import FavoriteButton from "../FavoriteButton/FavoriteButton"
 
 const CatCard = ({
+  id,
   image,
   name,
   breed,
   description,
   buttonText,
   onButtonClick,
-  tag,
-  isFavorite,
-  onToggleFavorite,
+  tag
 }) => {
   return (
     <article className="card">
+      <FavoriteButton
+        id={id}
+        image={image}
+        name={name}
+        description={description}
+        tag={tag}
+      />
       <div className="card-image-container">
         <img className="card-image" src={image} alt={name} />
-        <button
-          className={`favorite-button ${isFavorite ? "favorite" : ""}`}
-          onClick={onToggleFavorite}
-          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-        >
-          <FaHeart />
-        </button>
       </div>
       <div className="card-content-wrapper">
         <div className="card-content">

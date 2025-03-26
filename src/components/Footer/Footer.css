@@ -9,8 +9,7 @@ footer {
   padding: 2em 0 2em 0;
   background-color: var(--footer-bg-color);
 }
-
-    
+ 
   footer a {
     text-decoration: none;
     color: var(--text-color-dark);
@@ -20,4 +19,8 @@ footer {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+  }
+
+  footer p {
+    color: var(--p-color);
   }

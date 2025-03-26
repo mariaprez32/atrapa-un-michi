@@ -2,33 +2,39 @@
     width: 300px;
     height: 57vh;
     background-color: var(--cards-bg);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-10px) rotateY(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .card-image-container {
     position: relative;
-    height: 250px;
+    height: 200px;
     width: 100%;
+    overflow: hidden;
 }
 
 .card-image {
     display: block;
     margin: 0 auto;
-    height: 250px;
+    height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
 }
 
 .card-image::before {
@@ -57,7 +63,10 @@
 }
 
 .card-content {
-    padding: 24px;
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
@@ -126,16 +135,14 @@
 }
 
 .card-footer {
+    border-top: 1px solid rgba(255, 192, 203, 0.5);
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid var(--line-light);
-    margin-bottom: 16px;
 }
 
 @keyframes float {
-
     0%,
     100% {
         transform: translateY(0) rotate(0deg);
@@ -154,37 +161,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-.favorite-button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    color: var(--text-color-description);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.favorite-button:hover {
-    transform: scale(1.1);
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.favorite-button.favorite {
-    color: var(--line-accent);
-    animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
