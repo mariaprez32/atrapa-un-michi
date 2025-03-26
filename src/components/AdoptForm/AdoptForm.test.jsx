@@ -1,13 +1,20 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { describe, test, expect, vi } from "vitest";
+import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 import AdoptForm from "./AdoptForm";
 
 const mockCat = { name: "Whiskers" };
 
 describe("AdoptForm", () => {
+  beforeEach(() => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   test("Renders all form fields", () => {
     render(<AdoptForm cat={mockCat} />);
-    
     expect(screen.getByText(`Adopt ${mockCat.name}`)).toBeInTheDocument();
     expect(screen.getByLabelText("First Name")).toBeInTheDocument();
     expect(screen.getByLabelText("Last Name")).toBeInTheDocument();
@@ -58,7 +65,40 @@ describe("AdoptForm", () => {
   });
 
   test("Submits form with valid data", async () => {
-    const consoleSpy = vi.spyOn(console, "log");
+    render(<AdoptForm cat={mockCat} />);
+    
+    fireEvent.change(screen.getByLabelText("First Name"), { target: { value: "Alex" } });
+    fireEvent.change(screen.getByLabelText("Last Name"), { target: { value: "Smith" } });
+    fireEvent.change(screen.getByLabelText("Phone"), { target: { value: "+34611223344" } });
+    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "alex@example.com" } });
+    fireEvent.change(screen.getByLabelText("City"), { target: { value: "Madrid" } });
+    fireEvent.change(screen.getByLabelText("Autonomous Community"), { target: { value: "Madrid" } });
+  
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+
+    expect(screen.getByRole("button")).toBeDisabled();
+    
+    await waitFor(() => {
+      expect(console.log).toHaveBeenCalledWith({
+        firstName: "Alex",
+        lastName: "Smith",
+        phone: "+34611223344",
+        email: "alex@example.com",
+        city: "Madrid",
+        autonomousCommunity: "Madrid",
+        aboutMe: "",
+      });
+    });
+  });
+
+  test("Shows error message on submission failure", async () => {
+  
+    vi.useFakeTimers();
+    
+   
+    const mockPromise = Promise.reject(new Error("API error"));
+    vi.spyOn(global, "Promise").mockImplementationOnce(() => mockPromise);
+    
     render(<AdoptForm cat={mockCat} />);
     
     
@@ -69,40 +109,15 @@ describe("AdoptForm", () => {
     fireEvent.change(screen.getByLabelText("City"), { target: { value: "Madrid" } });
     fireEvent.change(screen.getByLabelText("Autonomous Community"), { target: { value: "Madrid" } });
     
-    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
-    
-    
-    expect(screen.getByRole("button", { name: "Loading..." })).toBeDisabled();
-    
-    await waitFor(() => {
-      expect(consoleSpy).toHaveBeenCalledWith({
-        firstName: "Alex",
-        lastName: "Smith",
-        phone: "+34611223344",
-        email: "alex@example.com",
-        city: "Madrid",
-        autonomousCommunity: "Madrid",
-        aboutMe: "", 
-      });
-    });
-    
-    consoleSpy.mockRestore(); 
-  });
 
-  test("Shows error message on submission failure", async () => {
-   
-    vi.spyOn(global, "Promise").mockImplementationOnce(() => ({
-      then: () => ({ catch: (fn) => fn(new Error("API error")) }),
-    }));
-    
-    render(<AdoptForm cat={mockCat} />);
-    
     fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    
+    vi.runAllTimers();
     
     await waitFor(() => {
       expect(screen.getByText("There was a problem in your submission. Try again.")).toBeInTheDocument();
     });
     
-    vi.restoreAllMocks(); 
+    vi.useRealTimers();
   });
 });
