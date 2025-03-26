@@ -15,10 +15,10 @@ const Header = () => {
       
       <div className="navbar-links">
         <Link to="/" className="nav-link">
-          Inicio
+          Home
         </Link>
         <Link to="/favorites" className="nav-link">
-          Favoritos
+          Favorites
         </Link>
         <ThemeToggle />
       </div>
