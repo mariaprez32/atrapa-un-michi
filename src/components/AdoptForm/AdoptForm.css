@@ -36,6 +36,7 @@ margin: 0.9em 0;
     padding-left: 3px;
     font-size: 1.1em;
     font-family: var(--font-family-main);
+    background-color: var(--input-color);
 }
 
 .adopt-text-area {
@@ -45,6 +46,8 @@ margin: 0.9em 0;
     padding-left: 3px;
     font-size: 1.1em;
     font-family: var(--font-family-main);
+    background-color: var(--input-color);
+    margin-bottom: 0.3em;
 }
 
 .form-error-text {

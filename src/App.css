@@ -19,6 +19,7 @@
   --text-color-darkest: #75053d;
   --bg-title: #ec4899;
   --p-color: black;
+  --input-color: white;
 
   /* Text */
   --font-family-main: Sour Gummy;
@@ -34,7 +35,7 @@
     --btn-color: #5fcd05;
     --footer-bg-color: #1e1e1e;
     --text-color-light: #ffffff;
-    --nav-color: #ffffff;
+    --nav-color: #222121;
     --shades-buttons: #4caf50;
     --shades-cards: #878181;
     --card-title-color: #ffffff;
@@ -46,6 +47,8 @@
     --text-color-darkest: #ffffff;
     --bg-title: #5fcd05;
     --p-color: white;
+    --input-color: rgb(63, 63, 63);
+
     /* Text */
       --font-family-main: Sour Gummy;
       --font-family-secondary: DynaPuff;
