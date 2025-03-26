@@ -87,12 +87,13 @@ const CatsSlider = () => {
           {cats.slice(currentPageInitialCatIndex, currentPageInitialCatIndex + visibleCats).map(cat => (
             <div key={cat.id} className="card-item">
               <CatCard
+                id={cat.id}
                 image={cat.image}
                 name={cat.name}
                 description={cat.description}
                 tag={cat.tag}
                 buttonText="Adopt me"
-                onButtonClick={() => handleAdoptClick(cat.id)}
+                onButtonClick={() => handleAdoptClick(cat)}
               />
             </div>
           ))}
