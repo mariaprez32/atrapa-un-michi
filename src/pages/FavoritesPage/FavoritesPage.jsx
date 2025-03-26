@@ -19,7 +19,7 @@ const FavoritesPage = () => {
     <div className="favorites-page">
       <section className="slider-section">
         <div className="container">
-          <h2 className="section-title">Your Favorite Cats</h2>
+          <h2 className="section-title">Your favorite cats</h2>
           <div className="favorites-grid">
             {favorites.map(cat => (
               <div key={cat.id} className="favorites-card-item">
