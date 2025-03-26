@@ -94,6 +94,7 @@
 }
 
 .card-description {
+    color: var(--text-color-description);
     font-size: clamp(0.875rem, 2vw, 1rem);
     /* Ajusta el tamaño de fuente entre 14px y 16px */
     line-clamp: 4;
