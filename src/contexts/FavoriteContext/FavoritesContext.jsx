@@ -45,7 +45,7 @@ export const FavoritesProvider = ({ children }) => {
     }
   }, []);
 
-  // Save favorites to localStorage whenever they change
+
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(state.favorites));
   }, [state.favorites]);

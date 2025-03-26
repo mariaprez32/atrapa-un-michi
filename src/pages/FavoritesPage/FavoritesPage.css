@@ -1,5 +1,5 @@
 .favorites-page {
-  padding: 0.1rem 0;
+  padding: 0.1rem 0 4rem 0;
   min-height: calc(100vh - 80px); 
   background-color: var(--bg-color);
 }
