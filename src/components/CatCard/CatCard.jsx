@@ -20,6 +20,8 @@ const CatCard = ({ id, image, name, description, buttonText, onButtonClick, tag 
         <h2 className="card-title">{name}</h2>
         <p className="card-description">{description}</p>
         <p className="card-tag">{tag}</p>
+      </div>
+      <div className="card-footer">
         <Button 
           onButtonClick={onButtonClick}
           buttonText={buttonText}
