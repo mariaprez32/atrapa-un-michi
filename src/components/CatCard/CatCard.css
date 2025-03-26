@@ -40,7 +40,7 @@
     height: 100%;
     background: linear-gradient(to bottom,
             transparent,
-           var(--shades-cards-hover) 50%,
+            var(--shades-cards-hover) 50%,
             transparent);
     transform: rotate(45deg);
     animation: shine 3s infinite;
@@ -85,17 +85,26 @@
 }
 
 .card-description {
-    font-size: 14px;
-    color: var(--text-color-description);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    /* Ajusta el tamaño de fuente entre 14px y 16px */
+    line-clamp: 4;
+    /* Mantiene máximo 3 líneas */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Limita a 3 líneas */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    /* Añade "..." al final si el texto es demasiado largo */
+    word-break: break-all;
 }
+
 
 .card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .card-tag {
@@ -107,6 +116,7 @@
     transition: all 0.3s ease;
     width: fit-content;
 }
+
 
 .card-content-wrapper {
     display: flex;
@@ -141,9 +151,9 @@
 }
 
 .card-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .favorite-button {
@@ -181,9 +191,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }

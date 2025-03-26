@@ -1,9 +1,14 @@
-const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=10';
+const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1';
 
 
 export const fetchCats = async() => {
+  
   try {
-    const response = await fetch(`${API_URL}`);
+    const response = await fetch(`${API_URL}`, {
+      headers: {
+        'x-api-key': import.meta.env.VITE_API_KEY
+      }
+    });
     
     if (!response.ok) {
       console.error(`Error: ${response.status}`);
@@ -17,8 +22,8 @@ export const fetchCats = async() => {
       id: cat.id,
       image: cat.url,
       name: getRandomName(),
-      description: getRandomDescription(),
-      tag: getRandomTag(),
+      description: cat.breeds[0].description, //breeds es un array con un solo objeto (0) y éste último tiene sus propiedades como description
+      tag: [getRandomTag(), cat.breeds[0].name],
       buttonText: '¡Adóptame!'
     }));
     
@@ -40,24 +45,7 @@ function getRandomName() {
   return names[randomIndex];
 }
 
-function getRandomDescription() {
-  const descriptions = [
-    'He is very playful and loves chasing balls.',
-    'He is calm and enjoys sleeping all day.',
-    'He is very affectionate and always wants to be on your lap.',
-    'He is independent but very loyal to his owners.',
-    'He loves climbing and exploring high places.',
-    'He is very sociable and gets along well with other animals.',
-    'He is shy at first but very sweet once he gains confidence.',
-    'He has a very curious personality and loves to investigate everything.',
-    'He is an expert toy hunter.',
-    'He is very vocal and will always tell you about his day with meows.'
-  ];
-  
-  
-  const randomIndex = Math.floor(Math.random() * descriptions.length);
-  return descriptions[randomIndex];
-}
+
 
 function getRandomTag() {
   const tags = [
@@ -72,6 +60,5 @@ function getRandomTag() {
 }
 
 export default {
-  fetchCats,
-  // fetchCatById
+  fetchCats
 };
