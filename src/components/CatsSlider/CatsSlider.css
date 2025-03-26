@@ -1,8 +1,6 @@
 .cats-slider {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5px 20px;
+    padding: 0.313em;
   }
   
   .slider-container {
@@ -10,28 +8,23 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    position: relative;
   }
   
   .multi-card-wrapper {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 40px;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 0;
+    gap: 1.875em;
+    width: 60%;
   }
   
   .card-item {
-    flex: 0 0 calc(33.333% - 40px);
+    flex: 0 0 calc(33.333% - 2.5em);
     min-width: 250px;
     max-width: 300px;
     transition: transform 0.3s ease;
     display: inline-block;
     white-space: normal;
-    margin: 0 20px;
+    margin: 1em 0;
   }
   
   .slider-nav {
@@ -39,35 +32,30 @@
     color: var(--nav-color);
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 1.25em;
+    text-align: center;
     cursor: pointer;
-    z-index: 10;
-    position: absolute;
+    z-index: 2;
   }
-  
-  .slider-prev {
-    left: 5px;
-  }
-  
-  .slider-next {
-    right: 5px;
-  }
+
+  .hidden-button {
+    opacity: 0;
+    pointer-events: none; 
+  }  
+
   
   .slider-indicators {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
-    gap: 8px;
+    margin-top: 0.938em;
+    gap: 0.5em;
   }
   
   .slider-dot {
-    width: 10px;
-    height: 10px;
+    width: 0.625em;
+    height: 0.625em;
     border-radius: 50%;
     background-color: var(--shades-cards);
     border: none;
@@ -79,8 +67,8 @@
     background-color: var(--card-title-color);
   }
   
-  /* Estilos responsivos */
-  @media (max-width: 900px) {
+  
+  /* @media (max-width: 900px) {
     .multi-card-wrapper {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
@@ -105,5 +93,5 @@
     .multi-card-wrapper {
       flex-wrap: nowrap;
       gap: 20px;
-    }
-  }
+    } 
+  } */
