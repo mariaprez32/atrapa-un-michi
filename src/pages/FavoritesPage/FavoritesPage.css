@@ -1,22 +1,35 @@
 .favorites-page {
-  padding: 0.1rem 0 4rem 0;
+  padding: 2rem 0 4rem 0;
   min-height: calc(100vh - 80px); 
   background-color: var(--bg-color);
 }
 
 .slider-section {
-  padding: 0.1rem 0;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--text-color-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .favorites-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 0.5rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
 .favorites-card-item {
@@ -39,14 +52,14 @@
 .favorites-empty h2 {
   color: var(--text-color-dark);
   font-family: var(--font-family-main);
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 1rem;
 }
 
 .favorites-empty p {
   color: var(--text-color-description);
   font-family: var(--font-family-secondary);
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.6;
 }
 
@@ -65,13 +78,27 @@
 /* Responsive */
 @media (max-width: 1200px) {
   .favorites-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .favorites-page {
+    padding-top: 1.5rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
   .favorites-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
 
@@ -79,13 +106,36 @@
     padding: 3rem 1.5rem;
     margin: 1rem;
   }
+}
 
-  .favorites-empty h2 {
-    font-size: 1.5rem;
+@media (max-width: 480px) {
+  .favorites-page {
+    padding-top: 1rem;
   }
 
-  .favorites-empty p {
-    font-size: 1rem;
+  .container {
+    padding: 0 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .favorites-card-item {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .favorites-empty {
+    padding: 2rem 1rem;
+    margin: 1rem 0.8rem;
   }
 }
 
