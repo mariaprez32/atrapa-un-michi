@@ -16,11 +16,15 @@ margin: 0.9em 0;
 .adopt-form h3 {
     font-size: 2em;  
     text-align: center; 
+    color: var(--card-title-color);
+}
+.adopt-form label {
+    color: var(--card-title-color);
 }
 
 .adopt-form p {
     font-size: 1em;
-   
+    color: var(--card-title-color);
 }
 
 .adopt-input {
