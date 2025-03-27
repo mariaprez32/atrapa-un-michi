@@ -5,7 +5,7 @@ import CatCard from "../CatCard/CatCard";
 import "./CatsSlider.css";
 
 const CatsSlider = () => {
-  const [visibleCats, setVisibleCats] = useState(null);
+  const [visibleCats, setVisibleCats] = useState(1);
   const [cats, setCats] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
