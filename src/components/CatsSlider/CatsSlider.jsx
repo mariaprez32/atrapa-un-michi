@@ -63,10 +63,7 @@ const CatsSlider = () => {
   if (loading)
     return (
       <div className="slider-loading">
-        <div>
-          <div className="loading-spinner"></div>
           <p>Loading adorable cats...</p>
-        </div>
       </div>
     );
 
