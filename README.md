@@ -18,7 +18,7 @@
 - **Theme Support**: Toggle between light and dark mode for comfortable viewing
 - **Adoption Process**: Simple workflow to start the adoption process for your chosen cat
 
-## 🖥️ 
+## 🖥️
 
 ![Atrapa un Michi Screenshot](public/shot.png)
 
@@ -148,7 +148,9 @@ atrapa-un-michi/
 
 ## 📱 Responsive Design
 
-![Atrapa un Michi Screenshot](public/responsive.png)
+<div align="center">
+  <img src="public/responsive.png" alt="Responsive Design" width="100%">
+</div>
 
 The application is fully responsive with different layouts for:
 
@@ -177,7 +179,6 @@ Contributions are welcome! To contribute:
 5. Open a Pull Request
 
 Please ensure your code follows the project's style guidelines and includes appropriate tests.
-
 
 ## 🙏 Acknowledgements
 
