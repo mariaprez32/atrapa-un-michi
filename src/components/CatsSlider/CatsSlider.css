@@ -1,6 +1,9 @@
 .cats-slider {
     width: 100%;
-    padding: 0.313em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .slider-container {
@@ -8,19 +11,19 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 0.5em;
   }
   
   .multi-card-wrapper {
     display: flex;
     justify-content: center;
     gap: 1.875em;
-    width: 60%;
+    height: 100%;
   }
   
   .card-item {
-    flex: 0 0 calc(33.333% - 2.5em);
-    min-width: 250px;
-    max-width: 300px;
+    width: 300px;
+    height: 500px;
     transition: transform 0.3s ease;
     display: inline-block;
     white-space: normal;
@@ -37,7 +40,6 @@
     font-size: 1.25em;
     text-align: center;
     cursor: pointer;
-    z-index: 2;
   }
 
   .hidden-button {
@@ -51,6 +53,7 @@
     justify-content: center;
     margin-top: 0.938em;
     gap: 0.5em;
+    padding: 1em 0;
   }
   
   .slider-dot {
@@ -61,37 +64,37 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-top:2em;
   }
   
   .slider-dot.active {
     background-color: var(--card-title-color);
   }
   
-  
-  /* @media (max-width: 900px) {
-    .multi-card-wrapper {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 10px 0;
-      flex-wrap: nowrap;
-      gap: 30px;
-    }
-    
-    .card-item {
-      flex: 0 0 calc(50% - 40px);
-      scroll-snap-align: center;
-      margin: 0 15px;
-    }
+
+  @media screen and (max-width: 767px) {
+  .card-item {
+    width: 250px;
+    max-width: 350px;
+    height: 450px;
   }
-  
-  @media (max-width: 600px) {
-    .card-item {
-      flex: 0 0 calc(100% - 40px);
-      margin: 0 10px;
-    }
-    
-    .multi-card-wrapper {
-      flex-wrap: nowrap;
-      gap: 20px;
-    } 
-  } */
+
+  .slider-indicators {
+    padding:1em;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .card-item {
+    height: 550px;
+    width: 350px;
+  }
+
+  .multi-card-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    height: 100%;
+  }
+}

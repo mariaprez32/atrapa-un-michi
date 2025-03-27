@@ -33,7 +33,7 @@ margin: 0.9em 0;
     font-size: 1em;
     border-radius: 10px;
     border: 0;
-    padding-left: 3px;
+    padding-left: 0.188em;
     font-size: 1.1em;
     font-family: var(--font-family-main);
     background-color: var(--input-color);
@@ -43,7 +43,7 @@ margin: 0.9em 0;
     width: 100%;
     border-radius: 10px;
     border: 0;
-    padding-left: 3px;
+    padding-left: 0.188em;
     font-size: 1.1em;
     font-family: var(--font-family-main);
     background-color: var(--input-color);
@@ -52,8 +52,39 @@ margin: 0.9em 0;
 
 .form-error-text {
     font-size: 1em !important; 
-    margin-left: 2px;
+    margin-left: 0.125em;
     background-color: transparent !important;
     color: red !important;
     margin-top: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+.adopt-form {
+    width: 350px;
+}
+
+.adopt-form h3 {
+    font-size: 1em;
+    }
+
+.adopt-form p {
+font-size: 0.8em;
+}
+
+.adopt-input {
+    font-size: 0.8em;
+}
+
+.adopt-form label {
+    font-size: 0.8em;
+}
+
+.adopt-text-area {
+    font-size: 0.8em;
+}
+
+.form-error-text {
+    font-size: 0.8em !important; 
+}
+
 }

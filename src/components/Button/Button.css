@@ -11,6 +11,7 @@ button {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    font-size: 1em;
 }
 
 button::before {
@@ -35,7 +36,14 @@ button.light:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px var(--shades-buttons);
 }
+
 button.dark:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px var(--dark-shades-buttons);
+}
+
+@media screen and (max-width: 767px) {
+    .card-button {
+        font-size: 0.8em;
+    }
 }

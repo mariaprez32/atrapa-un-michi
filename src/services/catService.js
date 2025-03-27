@@ -22,7 +22,7 @@ export const fetchCats = async() => {
       id: cat.id,
       image: cat.url,
       name: getRandomName(),
-      description: cat.breeds[0].description, //breeds es un array con un solo objeto (0) y éste último tiene sus propiedades como description
+      description: truncateText(cat.breeds[0].description, 130), //breeds es un array con un solo objeto (0) y éste último tiene sus propiedades como description
       tag: [getRandomTag(), cat.breeds[0].name],
       buttonText: '¡Adóptame!'
     }));
@@ -31,6 +31,14 @@ export const fetchCats = async() => {
     console.error('Error en fetchCats:', error.message);
     return [];
   }
+};
+
+
+const truncateText = (text, maxLength) => {
+  if (text.length <= maxLength) return text;
+  const sliced = text.slice(0, maxLength);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return sliced.slice(0, lastSpace) + "...";
 };
 
 

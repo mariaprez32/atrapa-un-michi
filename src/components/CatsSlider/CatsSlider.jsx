@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchCats } from "../../services/catService";
 import CatCard from "../CatCard/CatCard";
@@ -10,8 +10,8 @@ const CatsSlider = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const visibleCats = 3;
-  const lastPage = Math.floor(cats.length / visibleCats);
+  const [visibleCats, setVisibleCats] = useState(null);
+  const lastPage = Math.ceil(cats.length / visibleCats) - 1;
   const totalPages = lastPage + 1;
   const currentPageInitialCatIndex = currentPage * visibleCats;
 
@@ -30,6 +30,23 @@ const CatsSlider = () => {
 
     loadCats();
   }, []);
+
+  const updateVisibleCats = () => {
+    const width = window.innerWidth;
+    if (width <= 1023) {
+      setVisibleCats(1);
+    } else {
+      setVisibleCats(3);
+    }
+  };
+
+  useLayoutEffect(() => {
+    updateVisibleCats();
+    window.addEventListener('resize', updateVisibleCats);
+    return () => window.removeEventListener('resize', updateVisibleCats);
+  }, []);
+
+
 
   const nextSlide = () => {
     setCurrentPage(currentPage + 1);

@@ -23,4 +23,5 @@ footer {
 
   footer p {
     color: var(--p-color);
+    font-size: 1em;
   }
