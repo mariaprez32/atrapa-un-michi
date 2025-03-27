@@ -18,7 +18,7 @@
 - **Soporte de Temas**: Alterna entre modo claro y oscuro para una visualización confortable
 - **Proceso de Adopción**: Flujo simple para iniciar el proceso de adopción del gato elegido
 
-## 🖥️ Demo en Vivo
+## 🖥️ 
 
 ![Captura de pantalla de Atrapa un Michi](public/shot.png)
 
