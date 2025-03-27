@@ -5,54 +5,34 @@ import CatCard from "../CatCard/CatCard";
 import "./CatsSlider.css";
 
 const CatsSlider = () => {
+  const [visibleCats, setVisibleCats] = useState(1);
   const [cats, setCats] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const [visibleCats, setVisibleCats] = useState(null);
   const lastPage = Math.ceil(cats.length / visibleCats) - 1;
   const totalPages = lastPage + 1;
   const currentPageInitialCatIndex = currentPage * visibleCats;
 
-  // useEffect(() => {
-  //   const loadCats = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const catsData = await fetchCats();
-  //       setCats(catsData);
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setError(err.message || "Error loading cats.");
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   loadCats();
-  // }, []);
-   useEffect(() => {
-  let ignore = false; 
-
-  const loadCats = async () => {
-    try {
-      setLoading(true);
-      const catsData = await fetchCats();
-      
-      if (!ignore) {  
-        setCats(catsData);
+  useEffect(() => {
+    let isActive = true; 
+    const loadCats = async () => {
+      try {
+        setLoading(true);
+        const catsData = await fetchCats();
+        if (isActive) setCats(catsData);
+      } catch (err) {
+        if (isActive) setError(err.message || "Error loading cats.");
+      } finally {
+        if (isActive) setLoading(false);
       }
-    } catch (err) {
-      if (!ignore) setError(err.message);
-    } finally {
-      if (!ignore) setLoading(false);
-    }
-  };
+    };
 
-  loadCats();
-
-  return () => { ignore = true; };  
-}, []);
-
+    loadCats();
+    return () => { isActive = false; }; 
+  }, []);
+ 
   const updateVisibleCats = () => {
     const width = window.innerWidth;
     if (width <= 1023) {
