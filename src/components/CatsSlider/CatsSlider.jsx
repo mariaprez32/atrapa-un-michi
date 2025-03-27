@@ -15,21 +15,43 @@ const CatsSlider = () => {
   const totalPages = lastPage + 1;
   const currentPageInitialCatIndex = currentPage * visibleCats;
 
-  useEffect(() => {
-    const loadCats = async () => {
-      try {
-        setLoading(true);
-        const catsData = await fetchCats();
-        setCats(catsData);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message || "Error loading cats.");
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const loadCats = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const catsData = await fetchCats();
+  //       setCats(catsData);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       setError(err.message || "Error loading cats.");
+  //       setLoading(false);
+  //     }
+  //   };
 
-    loadCats();
-  }, []);
+  //   loadCats();
+  // }, []);
+   useEffect(() => {
+  let ignore = false; 
+
+  const loadCats = async () => {
+    try {
+      setLoading(true);
+      const catsData = await fetchCats();
+      
+      if (!ignore) {  
+        setCats(catsData);
+      }
+    } catch (err) {
+      if (!ignore) setError(err.message);
+    } finally {
+      if (!ignore) setLoading(false);
+    }
+  };
+
+  loadCats();
+
+  return () => { ignore = true; };  
+}, []);
 
   const updateVisibleCats = () => {
     const width = window.innerWidth;
