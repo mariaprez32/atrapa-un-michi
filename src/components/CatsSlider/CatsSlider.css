@@ -32,7 +32,7 @@
   
   .slider-nav {
     background-color: rgba(0, 0, 0, 0.5);
-    color: var(--nav-color);
+    color: var(--text-color-light);
     border: none;
     border-radius: 50%;
     width: 2.5em;
