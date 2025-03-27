@@ -149,7 +149,7 @@ atrapa-un-michi/
 ## 📱 Responsive Design
 
 <div align="center">
-  <img src="public/responsive.png" alt="Responsive Design" width="100%">
+  <img src="public/responsive.png" alt="Responsive Design" width="50%">
 </div>
 
 The application is fully responsive with different layouts for:
