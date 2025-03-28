@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer } from 'react';
 
 export const FavoritesContext = createContext();
 
@@ -23,12 +23,6 @@ const favoritesReducer = (state, action) => {
         favorites: state.favorites.filter(cat => cat.id !== action.payload)
       };
       
-    case 'LOAD_FAVORITES':
-      return {
-        ...state,
-        favorites: action.payload
-      };
-      
     default:
       return state;
   }
@@ -36,19 +30,6 @@ const favoritesReducer = (state, action) => {
 
 export const FavoritesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(favoritesReducer, initialState);
-
-  // Load favorites from localStorage on mount
-  useEffect(() => {
-    const savedFavorites = localStorage.getItem('favorites');
-    if (savedFavorites) {
-      dispatch({ type: 'LOAD_FAVORITES', payload: JSON.parse(savedFavorites) });
-    }
-  }, []);
-
-
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(state.favorites));
-  }, [state.favorites]);
 
   const addFavorite = (cat) => {
     dispatch({ type: 'ADD_FAVORITE', payload: cat });
