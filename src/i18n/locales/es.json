@@ -14,7 +14,8 @@
   },
   "favoritesPage": {
     "noFavoritesTitle": "Aún no tienes favoritos",
-    "noFavoritesP": "¡Vuelve a la página principal y añade algunos gatitos a tus favoritos!"
+    "noFavoritesP": "¡Vuelve a la página principal y añade algunos gatitos a tus favoritos!",
+    "favoriteCatsText": "Tus gatos favoritos"
   },
   "catCard": {
     "adoptButtonText": "Adóptame"

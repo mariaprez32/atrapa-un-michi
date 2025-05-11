@@ -20,8 +20,8 @@ const FavoritesPage = () => {
       <div className="favorites-page">
         <div className="container">
           <div className="favorites-empty">
-            <h2>{t('noFavoritesTitle')}</h2>
-            <p>{t('noFavoritesP')}</p>
+            <h2>{t('favoritesPage.noFavoritesTitle')}</h2>
+            <p>{t('favoritesPage.noFavoritesP')}</p>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ const FavoritesPage = () => {
   return (
     <div className="favorites-page">
       <div className="container">
-        <h2 className="section-title">Your favorite cats</h2>
+        <h2 className="section-title">{t('favoritesPage.favoriteCatsText')}</h2>
         <div className="favorites-grid">
           {favorites.map((cat) => (
             <div key={cat.id} className="favorites-card-item">

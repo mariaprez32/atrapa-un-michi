@@ -14,7 +14,8 @@
   },
   "favoritesPage": {
     "noFavoritesTitle": "No favorites yet",
-    "noFavoritesP": "Go back to the home page and add some cats to your favorites!"
+    "noFavoritesP": "Go back to the home page and add some cats to your favorites!",
+    "favoriteCatsText": "Your favorite cats"
   },
   "catCard": {
     "adoptButtonText": "Adopt me"
