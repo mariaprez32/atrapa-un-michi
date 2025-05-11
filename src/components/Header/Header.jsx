@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoClose } from 'react-icons/io5';
+import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ const Header = () => {
           Favorites
         </Link>
         <ThemeToggle />
+        <LanguageToggle />
       </div>
     </nav>
   )

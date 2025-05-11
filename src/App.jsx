@@ -7,15 +7,13 @@ import "./App.css";
 
 function App() {
   return (
-    <ThemeProvider>
-      <FavoritesProvider>
-        <Header />
-        <main>
-          <AppRoutes />
-        </main>
-        <Footer />
-      </FavoritesProvider>
-    </ThemeProvider>
+    <>
+      <Header />
+      <main>
+        <AppRoutes />
+      </main>
+      <Footer />
+    </>
   );
 }
 

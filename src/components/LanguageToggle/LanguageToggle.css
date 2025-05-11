@@ -1,0 +1,30 @@
+.language-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color-dark);
+  font-family: var(--font-family-secondary);
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+.language-toggle:hover {
+  background-color: var(--line-light);
+  color: var(--line-accent);                                        
+}
+
+@media (max-width: 768px) {
+  .language-toggle {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
