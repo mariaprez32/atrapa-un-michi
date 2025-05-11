@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchCats } from "../../services/catService";
 import CatCard from "../CatCard/CatCard";
 import "./CatsSlider.css";
+import { useTranslation } from "react-i18next";
 
 const CatsSlider = () => {
   const [visibleCats, setVisibleCats] = useState(1);
@@ -14,9 +15,10 @@ const CatsSlider = () => {
   const lastPage = Math.ceil(cats.length / visibleCats) - 1;
   const totalPages = lastPage + 1;
   const currentPageInitialCatIndex = currentPage * visibleCats;
+  const { t } = useTranslation();
 
   useEffect(() => {
-    let isActive = true; 
+    let isActive = true;
     const loadCats = async () => {
       try {
         setLoading(true);
@@ -30,9 +32,11 @@ const CatsSlider = () => {
     };
 
     loadCats();
-    return () => { isActive = false; }; 
+    return () => {
+      isActive = false;
+    };
   }, []);
- 
+
   const updateVisibleCats = () => {
     const width = window.innerWidth;
     if (width <= 1023) {
@@ -44,11 +48,9 @@ const CatsSlider = () => {
 
   useLayoutEffect(() => {
     updateVisibleCats();
-    window.addEventListener('resize', updateVisibleCats);
-    return () => window.removeEventListener('resize', updateVisibleCats);
+    window.addEventListener("resize", updateVisibleCats);
+    return () => window.removeEventListener("resize", updateVisibleCats);
   }, []);
-
-
 
   const nextSlide = () => {
     setCurrentPage(currentPage + 1);
@@ -65,7 +67,7 @@ const CatsSlider = () => {
   if (loading)
     return (
       <div className="slider-loading">
-          <p>Loading adorable cats...</p>
+        <p>{t("catsSlider.loadingText")}</p>
       </div>
     );
 
@@ -85,7 +87,7 @@ const CatsSlider = () => {
   if (cats.length === 0)
     return (
       <div className="slider-empty">
-        <p>There are not available cats at this moment.</p>
+        <p>{t("catsSlider.notAvailableText")}</p>
       </div>
     );
 
@@ -115,7 +117,7 @@ const CatsSlider = () => {
                   name={cat.name}
                   description={cat.description}
                   tag={cat.tag}
-                  buttonText="Adopt me"
+                  buttonText={t("catCard.adoptButtonText")}
                   onButtonClick={() => handleAdoptClick(cat)}
                 />
               </div>

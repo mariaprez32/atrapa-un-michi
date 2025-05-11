@@ -1,0 +1,84 @@
+{
+  "appName": "Atrapa un michi",
+  "header": {
+    "goHome": "Inicio",
+    "goFavorites": "Favoritos"
+  },
+  "languageToggle": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "footer": {
+    "firstText": "© 2025 Atrapa un gatito. Todos los derechos reservados.",
+    "secondText": "Contáctanos:"
+  },
+  "favoritesPage": {
+    "noFavoritesTitle": "Aún no tienes favoritos",
+    "noFavoritesP": "¡Vuelve a la página principal y añade algunos gatitos a tus favoritos!"
+  },
+  "catCard": {
+    "adoptButtonText": "Adóptame"
+  },
+  "catsSlider": {
+    "loadingText": "Cargando gatitos adorables...",
+    "notAvailableText": "No hay gatitos disponibles en este momento."
+  },
+  "homePage": {
+    "homeTitle": "Gatitos en busca de un hogar"
+  },
+  "tags": {
+    "puppy": "Cachorro • 2-6 meses",
+    "young": "Joven • 6-12 meses",
+    "adult": "Adulto • 1-3 años",
+    "senior": "Anciano • 4+ años"
+  },
+  "adoptForm": {
+    "title": "Adopta a {{name}}",
+    "description": "Por favor, completa todas las secciones de este formulario para solicitar la adopción. Revisaremos tu solicitud y te contactaremos en 2-3 días hábiles.",
+    "firstName": {
+      "label": "Nombre",
+      "placeholder": "Nombre",
+      "required": "El nombre es obligatorio",
+      "minLength": "El nombre debe tener al menos 2 caracteres",
+      "pattern": "Solo se permiten letras"
+    },
+    "lastName": {
+      "label": "Apellido",
+      "placeholder": "Apellido",
+      "required": "El apellido es obligatorio",
+      "minLength": "El apellido debe tener al menos 2 caracteres",
+      "pattern": "Solo se permiten letras"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "placeholder": "Número de teléfono",
+      "required": "El número de teléfono es obligatorio",
+      "pattern": "Número de teléfono español inválido"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Correo electrónico",
+      "required": "El correo electrónico es obligatorio",
+      "pattern": "Dirección de correo electrónico inválida"
+    },
+    "city": {
+      "label": "Ciudad",
+      "placeholder": "Ciudad",
+      "required": "La ciudad es obligatoria",
+      "minLength": "La ciudad debe tener al menos 2 caracteres",
+      "pattern": "Solo se permiten letras, espacios y guiones"
+    },
+    "autonomousCommunity": {
+      "label": "Comunidad Autónoma",
+      "placeholder": "Selecciona una comunidad autónoma",
+      "required": "La comunidad autónoma es obligatoria"
+    },
+    "aboutMe": {
+      "placeholder": "Cuéntanos un poco sobre ti y por qué deseas adoptar (opcional).",
+      "maxLength": "El máximo permitido es de 500 caracteres"
+    },
+    "submit": "Enviar",
+    "loading": "Cargando...",
+    "error": "Hubo un problema al enviar el formulario. Inténtalo de nuevo."
+  }
+}

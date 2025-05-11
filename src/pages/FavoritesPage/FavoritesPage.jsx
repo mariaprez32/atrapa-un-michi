@@ -3,10 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useFavorites } from '../../hooks/useFavorites';
 import CatCard from '../../components/CatCard/CatCard';
 import './FavoritesPage.css';
+import { useTranslation } from 'react-i18next';
 
 const FavoritesPage = () => {
   const { favorites } = useFavorites();
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const handleAdoptClick = (cat) => {
     navigate(`/adopt`, { state: { cat } });
@@ -17,8 +20,8 @@ const FavoritesPage = () => {
       <div className="favorites-page">
         <div className="container">
           <div className="favorites-empty">
-            <h2>No favorites yet</h2>
-            <p>Go back to the home page and add some cats to your favorites!</p>
+            <h2>{t('noFavoritesTitle')}</h2>
+            <p>{t('noFavoritesP')}</p>
           </div>
         </div>
       </div>
@@ -38,7 +41,7 @@ const FavoritesPage = () => {
                 name={cat.name}
                 description={cat.description}
                 tag={cat.tag}
-                buttonText="Adopt me"
+                buttonText={t('catCard.adoptButtonText')}
                 onButtonClick={() => handleAdoptClick(cat)}
               />
             </div>

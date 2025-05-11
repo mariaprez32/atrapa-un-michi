@@ -5,9 +5,11 @@ import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoClose } from 'react-icons/io5';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -18,7 +20,7 @@ const Header = () => {
       <div className="navbar-brand">
         <Link to="/" className="navbar-title">
           <img src="/paw-logo.png" alt="Paw logo" />
-          Catch a kitty
+          {t('appName')}
         </Link>
       </div>
 
@@ -28,10 +30,10 @@ const Header = () => {
 
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
-          Home
+          {t('header.goHome')}
         </Link>
         <Link to="/favorites" className="nav-link" onClick={() => setMenuOpen(false)}>
-          Favorites
+          {t('header.goFavorites')}
         </Link>
         <ThemeToggle />
         <LanguageToggle />

@@ -1,166 +1,151 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import "./AdoptForm.css";
 import Button from "../Button/Button";
 
 export const AdoptForm = ({ cat }) => {
-  //desestructuración del useForm
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
   } = useForm();
-  //isSubmitting (empieza false) maneja el estado de los datos (si se están enviando (true) o no)
+
   const onSubmit = async (data) => {
     try {
-      //simular que hace una petición de enviar el formulario (postear con fetch)
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(data); //en vez de esto habría que mandarlos a un servidor
+      console.log(data);
     } catch (error) {
       setError("root", {
-        message: "There was a problem in your submission. Try again.",
+        message: t("adoptForm.error"),
       });
     }
   };
 
   return (
-    // handleSubmit valida los datos y si está bien los printea (o los envía al servidor)
     <form className="adopt-form" onSubmit={handleSubmit(onSubmit)}>
-      <h3>Adopt {cat.name}</h3>
-      <p>
-        Please complete all sections of this form to apply for adoption. We'll
-        review your application and contact you within 2-3 business days.
-      </p>
+      <h3>{t("adoptForm.title", { name: cat.name })}</h3>
+      <p>{t("adoptForm.description")}</p>
 
-      {/* los inputs son registrados (y por lo tanto manejados por useForm) y se les asigna un nombre para distinguirlos */}
-
-      <label htmlFor="firstName">First Name</label>
+      <label htmlFor="firstName">{t("adoptForm.firstName.label")}</label>
       <input
         className="adopt-input"
         {...register("firstName", {
-          required: "First name is required",
+          required: t("adoptForm.firstName.required"),
           minLength: {
             value: 2,
-            message: "First name must be at least 2 characters",
+            message: t("adoptForm.firstName.minLength"),
           },
           pattern: {
             value: /^[a-zA-Z]+$/,
-            message: "Only letters are allowed",
+            message: t("adoptForm.firstName.pattern"),
           },
         })}
         type="text"
-        placeholder="First Name"
+        placeholder={t("adoptForm.firstName.placeholder")}
         id="firstName"
       />
       {errors.firstName && (
         <p className="form-error-text">{errors.firstName.message}</p>
       )}
 
-<label htmlFor="lastName">Last Name</label>
+      <label htmlFor="lastName">{t("adoptForm.lastName.label")}</label>
       <input
         className="adopt-input"
         {...register("lastName", {
-          required: "Last name is required",
+          required: t("adoptForm.lastName.required"),
           minLength: {
             value: 2,
-            message: "Last name must be at least 2 characters",
+            message: t("adoptForm.lastName.minLength"),
           },
           pattern: {
             value: /^[a-zA-Z]+$/,
-            message: "Only letters are allowed",
+            message: t("adoptForm.lastName.pattern"),
           },
         })}
         type="text"
-        placeholder="Last Name"
+        placeholder={t("adoptForm.lastName.placeholder")}
         id="lastName"
       />
       {errors.lastName && (
         <p className="form-error-text">{errors.lastName.message}</p>
       )}
 
-<label htmlFor="phone">Phone</label>
+      <label htmlFor="phone">{t("adoptForm.phone.label")}</label>
       <input
         className="adopt-input"
         {...register("phone", {
-          required: "Phone number is required",
+          required: t("adoptForm.phone.required"),
           pattern: {
             value: /^(?:\+34|0034|34)?[6789]\d{8}$/,
-            message: "Invalid Spanish phone number",
+            message: t("adoptForm.phone.pattern"),
           },
         })}
         type="tel"
-        placeholder="Phone Number"
+        placeholder={t("adoptForm.phone.placeholder")}
         id="phone"
       />
       {errors.phone && (
         <p className="form-error-text">{errors.phone.message}</p>
       )}
- <label htmlFor="email">Email</label>
+
+      <label htmlFor="email">{t("adoptForm.email.label")}</label>
       <input
         className="adopt-input"
         {...register("email", {
-          required: "Email is required",
+          required: t("adoptForm.email.required"),
           pattern: {
             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            message: "Invalid email address",
+            message: t("adoptForm.email.pattern"),
           },
         })}
         type="email"
-        placeholder="Email"
+        placeholder={t("adoptForm.email.placeholder")}
         id="email"
       />
-      {errors.email ? (
+      {errors.email && (
         <p className="form-error-text">{errors.email.message}</p>
-      ) : null}
- <label htmlFor="city">City</label>
+      )}
+
+      <label htmlFor="city">{t("adoptForm.city.label")}</label>
       <input
         className="adopt-input"
         {...register("city", {
-          required: "City is required",
+          required: t("adoptForm.city.required"),
           minLength: {
             value: 2,
-            message: "City must be at least 2 characters",
+            message: t("adoptForm.city.minLength"),
           },
           pattern: {
             value: /^[a-zA-ZÀ-ÿ\s-]+$/,
-            message: "Only letters, spaces, and hyphens are allowed",
+            message: t("adoptForm.city.pattern"),
           },
         })}
         type="text"
-        placeholder="City"
+        placeholder={t("adoptForm.city.placeholder")}
         id="city"
       />
       {errors.city && <p className="form-error-text">{errors.city.message}</p>}
-      
-      <label htmlFor="autonomousCommunity">Autonomous Community</label>
+
+      <label htmlFor="autonomousCommunity">{t("adoptForm.autonomousCommunity.label")}</label>
       <select
-       id="autonomousCommunity"
+        id="autonomousCommunity"
         className="adopt-input"
         {...register("autonomousCommunity", {
-          required: "Autonomous community is required",
+          required: t("adoptForm.autonomousCommunity.required"),
         })}
       >
-        <option value="">Select an autonomous community</option>
-        <option value="Andalucía">Andalucía</option>
-        <option value="Aragón">Aragón</option>
-        <option value="Asturias">Asturias</option>
-        <option value="Baleares">Baleares</option>
-        <option value="Canarias">Canarias</option>
-        <option value="Cantabria">Cantabria</option>
-        <option value="Castilla-La Mancha">Castilla-La Mancha</option>
-        <option value="Castilla y León">Castilla y León</option>
-        <option value="Cataluña">Cataluña</option>
-        <option value="Ceuta">Ceuta</option>
-        <option value="Comunidad Valenciana">Comunidad Valenciana</option>
-        <option value="Extremadura">Extremadura</option>
-        <option value="Galicia">Galicia</option>
-        <option value="La Rioja">La Rioja</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Melilla">Melilla</option>
-        <option value="Murcia">Murcia</option>
-        <option value="Navarra">Navarra</option>
-        <option value="País Vasco">País Vasco</option>
+        <option value="">{t("adoptForm.autonomousCommunity.placeholder")}</option>
+        {[
+          "Andalucía", "Aragón", "Asturias", "Baleares", "Canarias", "Cantabria",
+          "Castilla-La Mancha", "Castilla y León", "Cataluña", "Ceuta",
+          "Comunidad Valenciana", "Extremadura", "Galicia", "La Rioja",
+          "Madrid", "Melilla", "Murcia", "Navarra", "País Vasco"
+        ].map(region => (
+          <option key={region} value={region}>{region}</option>
+        ))}
       </select>
       {errors.autonomousCommunity && (
         <p className="form-error-text">{errors.autonomousCommunity.message}</p>
@@ -171,10 +156,10 @@ export const AdoptForm = ({ cat }) => {
         {...register("aboutMe", {
           maxLength: {
             value: 500,
-            message: "Maximum length is 500 characters",
+            message: t("adoptForm.aboutMe.maxLength"),
           },
         })}
-        placeholder="Tell us a little about yourself and why you want to adopt (optional)."
+        placeholder={t("adoptForm.aboutMe.placeholder")}
         rows="5"
       />
       {errors.aboutMe && (
@@ -184,11 +169,11 @@ export const AdoptForm = ({ cat }) => {
       <Button
         disabled={isSubmitting}
         type="submit"
-        buttonText={isSubmitting ? "Loading..." : "Submit"}
-      ></Button>
-      {errors.root ? (
+        buttonText={isSubmitting ? t("adoptForm.loading") : t("adoptForm.submit")}
+      />
+      {errors.root && (
         <p className="form-error-text">{errors.root.message}</p>
-      ) : null}
+      )}
     </form>
   );
 };

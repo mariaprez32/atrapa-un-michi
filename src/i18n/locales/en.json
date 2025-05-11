@@ -1,0 +1,84 @@
+{
+  "appName": "Catch a kitty",
+  "header": {
+    "goHome": "Home",
+    "goFavorites": "Favorites"
+  },
+  "languageToggle": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "footer": {
+    "firstText": "© 2025 Catch a kitty. All rights reserved.",
+    "secondText": "Contact us:"
+  },
+  "favoritesPage": {
+    "noFavoritesTitle": "No favorites yet",
+    "noFavoritesP": "Go back to the home page and add some cats to your favorites!"
+  },
+  "catCard": {
+    "adoptButtonText": "Adopt me"
+  },
+  "catsSlider": {
+"loadingText": "Loading adorable cats...",
+"notAvailableText": "There are not available cats at this moment."
+  },
+  "homePage": {
+    "homeTitle": "Cats looking for a home"
+  }, 
+      "tags": {
+    "puppy": "Puppy • 2-6 months",
+    "young": "Young • 6-12 months",
+    "adult": "Adult • 1-3 years",
+    "senior": "Senior • 4+ years"
+  },
+  "adoptForm": {
+    "title": "Adopt {{name}}",
+    "description": "Please complete all sections of this form to apply for adoption. We'll review your application and contact you within 2-3 business days.",
+    "firstName": {
+      "label": "First Name",
+      "placeholder": "First Name",
+      "required": "First name is required",
+      "minLength": "First name must be at least 2 characters",
+      "pattern": "Only letters are allowed"
+    },
+    "lastName": {
+      "label": "Last Name",
+      "placeholder": "Last Name",
+      "required": "Last name is required",
+      "minLength": "Last name must be at least 2 characters",
+      "pattern": "Only letters are allowed"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "Phone Number",
+      "required": "Phone number is required",
+      "pattern": "Invalid Spanish phone number"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Email",
+      "required": "Email is required",
+      "pattern": "Invalid email address"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "City",
+      "required": "City is required",
+      "minLength": "City must be at least 2 characters",
+      "pattern": "Only letters, spaces, and hyphens are allowed"
+    },
+    "autonomousCommunity": {
+      "label": "Autonomous Community",
+      "placeholder": "Select an autonomous community",
+      "required": "Autonomous community is required"
+    },
+    "aboutMe": {
+      "placeholder": "Tell us a little about yourself and why you want to adopt (optional).",
+      "maxLength": "Maximum length is 500 characters"
+    },
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "There was a problem in your submission. Try again."
+  }
+}

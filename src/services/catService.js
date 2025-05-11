@@ -1,3 +1,5 @@
+import i18n from '../i18n/i18n'; // ajusta la ruta a tu archivo de configuración
+
 const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1';
 
 
@@ -24,7 +26,6 @@ export const fetchCats = async() => {
       name: getRandomName(),
       description: truncateText(cat.breeds[0].description, 130), //breeds es un array con un solo objeto (0) y éste último tiene sus propiedades como description
       tag: [getRandomTag(), cat.breeds[0].name],
-      buttonText: '¡Adóptame!'
     }));
     
   } catch (error) {
@@ -56,12 +57,12 @@ function getRandomName() {
 
 
 function getRandomTag() {
-  const tags = [
-    'Cachorro • 2-6 meses',
-    'Joven • 6-12 meses',
-    'Adulto • 1-3 años',
-    'Senior • 4+ años'
-  ];
+const tags = [
+  i18n.t('tags.puppy'),    
+  i18n.t('tags.young'),   
+  i18n.t('tags.adult'),    
+  i18n.t('tags.senior')     
+];
   
   const randomIndex = Math.floor(Math.random() * tags.length);
   return tags[randomIndex];
